@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Features = () => {
   return (
@@ -8,27 +9,54 @@ const Features = () => {
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
-          <div>
+          <div className="animate-fade-in">
             <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">1</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-medium mb-6">Create & Customize Your Interview</h2>
-            <p className="text-lg text-recruit-gray mb-8">
-              Design comprehensive interview plans in minutes, not hours. Tailor questions to each role and level.
+            <p className="text-lg text-recruit-gray mb-8 leading-relaxed">
+              Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.
             </p>
-            <a href="#" className="inline-flex items-center text-orange-500 font-medium">
+            <a href="#" className="inline-flex items-center text-orange-500 font-medium hover:underline">
               Learn more <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
-          <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100">
-            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm flex items-center justify-center">
-              <p className="text-gray-400">Interview Builder Interface</p>
+          <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 shadow-sm animate-scale-in">
+            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
+              <div className="mb-6">
+                <h3 className="text-xl font-medium mb-2">Frontend Developer Interview</h3>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center mr-4"><span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span> Active</span>
+                  <span>Duration: 60 min</span>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-sm">JavaScript Fundamentals</span>
+                    <span className="text-xs text-gray-500">15 min</span>
+                  </div>
+                </div>
+                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-sm">React Components</span>
+                    <span className="text-xs text-gray-500">20 min</span>
+                  </div>
+                </div>
+                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-sm">API Integration</span>
+                    <span className="text-xs text-gray-500">15 min</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        {/* Stats section - from Figma */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+        {/* Stats section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24 animate-fade-in">
           <div className="text-center">
             <div className="inline-block bg-orange-100 rounded-full p-2 mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white">
@@ -37,8 +65,8 @@ const Features = () => {
                 </svg>
               </span>
             </div>
-            <p className="text-4xl font-bold text-orange-500 mb-2">26+</p>
-            <p className="text-sm text-recruit-gray">Candidates</p>
+            <p className="text-4xl font-bold text-orange-500 mb-2">2600+</p>
+            <p className="text-sm text-recruit-gray">Candidates Evaluated</p>
           </div>
           
           <div className="text-center">
@@ -62,7 +90,7 @@ const Features = () => {
               </span>
             </div>
             <p className="text-4xl font-bold text-orange-500 mb-2">75+</p>
-            <p className="text-sm text-recruit-gray">Companies</p>
+            <p className="text-sm text-recruit-gray">Partner Companies</p>
           </div>
           
           <div className="text-center">
@@ -79,48 +107,83 @@ const Features = () => {
         </div>
         
         {/* AI Interview Platform */}
-        <div className="mb-24 bg-black rounded-3xl overflow-hidden p-8">
-          <h3 className="text-2xl font-medium mb-8 text-white">AI Interview Platform - Real-time insights</h3>
-          <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center text-white">
-            <p>AI Interview Platform Demo</p>
+        <div className="mb-24 bg-black rounded-3xl overflow-hidden p-8 animate-fade-in">
+          <h3 className="text-2xl font-medium mb-6 text-white">AI Interview Platform - Real-time insights</h3>
+          <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-orange-500/80 flex items-center justify-center hover:bg-orange-600/80 transition-colors cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white ml-1">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                </svg>
+              </div>
+            </div>
+            
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+              <h4 className="text-white text-lg font-medium mb-2">Watch how it works</h4>
+              <p className="text-white/80 text-sm">See how our AI evaluates technical skills in real-time</p>
+            </div>
           </div>
         </div>
         
-        {/* 10x Feature Cards - from Figma */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-green-500 p-6 rounded-2xl text-white">
-            <div className="flex justify-between items-start mb-6">
-              <h4 className="text-xl font-medium">Unbiased<br />Smart analysis</h4>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white/70">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
-            </div>
-            <p className="text-sm text-white/80">Get fair, consistent evaluations every time</p>
-          </div>
+        {/* 10x Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+          <Card className="bg-green-500 p-6 rounded-2xl text-white h-full overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex justify-between items-start mb-6">
+                <h4 className="text-xl font-medium">Unbiased<br />Smart analysis</h4>
+                <ArrowRight className="w-6 h-6 text-white/70" />
+              </div>
+              <p className="text-sm text-white/80">Our AI evaluates technical skills objectively, eliminating human bias and ensuring fair assessment for all candidates.</p>
+            </CardContent>
+          </Card>
           
-          <div className="bg-gray-100 p-6 rounded-2xl relative">
-            <img src="/placeholder.svg" alt="Candidate profile" className="absolute right-6 top-6 w-16 h-16 rounded-lg" />
-            <div className="mt-24">
-              <h4 className="text-xl font-medium mb-3">Shortlisted</h4>
-              <div className="space-y-2">
-                {[1, 2, 3, 4].map(item => (
-                  <div key={item} className="flex items-center gap-2">
+          <Card className="bg-gray-100 p-6 rounded-2xl relative h-full">
+            <CardContent className="p-0">
+              <div className="absolute right-6 top-6 w-16 h-16 bg-orange-50 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-orange-500">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <div className="mt-24">
+                <h4 className="text-xl font-medium mb-3">Shortlisted Candidates</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                    <span className="text-sm text-gray-600">Skill {item}</span>
+                    <span className="text-sm text-gray-600">JavaScript Proficiency</span>
                   </div>
-                ))}
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <span className="text-sm text-gray-600">React Framework Knowledge</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <span className="text-sm text-gray-600">Problem-solving Skills</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <span className="text-sm text-gray-600">Communication Skills</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
           
-          <div className="bg-orange-50 p-6 rounded-2xl text-orange-600">
-            <div className="text-3xl font-bold mb-4">10x</div>
-            <h4 className="text-xl font-medium mb-3">Constructive Feedback</h4>
-            <p className="text-sm text-gray-600 mb-6">Our AI provides detailed, actionable feedback</p>
-            <button className="bg-orange-500 text-white py-2 px-4 rounded-lg text-sm">Learn More</button>
-          </div>
+          <Card className="bg-orange-50 p-6 rounded-2xl text-orange-600 h-full">
+            <CardContent className="p-0">
+              <div className="text-3xl font-bold mb-4">10x</div>
+              <h4 className="text-xl font-medium mb-3">Constructive Feedback</h4>
+              <p className="text-sm text-gray-600 mb-6">Our AI provides detailed, actionable feedback for every candidate, helping them improve and giving recruiters deeper insights.</p>
+              <button className="bg-orange-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-orange-600 transition-colors">Learn More</button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
