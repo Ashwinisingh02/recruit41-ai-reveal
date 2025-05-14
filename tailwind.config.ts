@@ -59,6 +59,7 @@ export default {
 					dark: '#111111',
 					gray: '#333333',
 					lightgray: '#F5F5F7',
+					orange: '#FF6A3D', // Added orange from Figma
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

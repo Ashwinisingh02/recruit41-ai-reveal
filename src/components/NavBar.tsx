@@ -28,7 +28,7 @@ const NavBar = () => {
       <div className="container-wide flex items-center justify-between py-4">
         <div className="flex items-center">
           <Link to="/" className="text-2xl font-medium text-recruit-dark">
-            Recruit<span className="text-recruit-blue">41</span>
+            Recruit<span className="text-orange-500">41</span>
           </Link>
         </div>
 
@@ -49,11 +49,11 @@ const NavBar = () => {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="border-recruit-blue text-recruit-blue hover:bg-recruit-blue/5">
+          <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500/5">
             Log In
           </Button>
-          <Button className="bg-recruit-accent hover:bg-recruit-blue text-white">
-            Start Free Trial
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+            Get Started
           </Button>
         </div>
 
@@ -90,11 +90,11 @@ const NavBar = () => {
             About
           </Link>
           <div className="flex flex-col space-y-2 pt-2">
-            <Button variant="outline" className="border-recruit-blue text-recruit-blue w-full justify-center">
+            <Button variant="outline" className="border-orange-500 text-orange-500 w-full justify-center">
               Log In
             </Button>
-            <Button className="bg-recruit-accent hover:bg-recruit-blue text-white w-full justify-center">
-              Start Free Trial
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full justify-center">
+              Get Started
             </Button>
           </div>
         </div>
