@@ -144,6 +144,19 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-600;
   }
+  
+  /* Card Grid Animations */
+  .card-animate {
+    @apply transition-all duration-700 ease-in-out;
+  }
+  
+  .card-stagger-show {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .card-stagger-hide {
+    @apply opacity-0 translate-y-10;
+  }
 }
 
 /* Smooth scrolling for the entire page */
