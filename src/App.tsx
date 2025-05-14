@@ -10,6 +10,7 @@ import ForRecruiters from "./pages/ForRecruiters";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import CandidateReport from "./pages/CandidateReport";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/for-recruiters" element={<ForRecruiters />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/candidate-report" element={<CandidateReport />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
