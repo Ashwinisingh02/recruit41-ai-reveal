@@ -3,6 +3,7 @@ import React from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Product = () => {
   return (
@@ -24,19 +25,37 @@ const Product = () => {
           </div>
         </section>
         
-        {/* Product Placeholder */}
+        {/* Product Tour */}
         <section className="section-padding bg-white">
           <div className="container-wide">
             <div className="text-center">
               <h2>Product Tour</h2>
               <p className="mt-4 mb-16 max-w-2xl mx-auto">
-                This page would contain a detailed product tour with interactive elements, 
-                screenshots, and video demonstrations.
+                Our AI-powered interview platform generates detailed candidate reports to help you make informed hiring decisions.
               </p>
             </div>
             
-            <div className="bg-recruit-lightgray h-80 rounded-lg flex items-center justify-center mb-16">
-              <p className="text-recruit-gray text-lg">Product Tour Visualization Placeholder</p>
+            <div className="rounded-lg overflow-hidden shadow-lg mb-16">
+              <div className="w-full">
+                <AspectRatio ratio={16 / 9} className="bg-recruit-lightgray">
+                  <img 
+                    src="/lovable-uploads/cb9cc1ae-4408-4cad-95c1-0b59eb6979cd.png" 
+                    alt="Candidate Report Interface" 
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <h3 className="mb-6">Comprehensive Candidate Insights</h3>
+              <p className="max-w-2xl mx-auto mb-8">
+                Our detailed reports provide in-depth analysis of each candidate's skills, interview performance, 
+                and AI-generated summaries to help you make the best hiring decisions.
+              </p>
+              <Button className="button-primary">
+                Request a Demo
+              </Button>
             </div>
           </div>
         </section>
