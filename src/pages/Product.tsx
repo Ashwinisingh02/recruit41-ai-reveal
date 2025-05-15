@@ -37,11 +37,17 @@ const Product = () => {
             
             <div className="rounded-lg overflow-hidden shadow-lg mb-16">
               <div className="w-full">
+                {/* Force image display with explicit dimensions and fallback styling */}
                 <AspectRatio ratio={16 / 9} className="bg-recruit-lightgray">
                   <img 
                     src="/lovable-uploads/cb9cc1ae-4408-4cad-95c1-0b59eb6979cd.png" 
                     alt="Candidate Report Interface" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
+                    style={{ maxHeight: '600px' }}
+                    onError={(e) => {
+                      console.error('Image failed to load');
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                 </AspectRatio>
               </div>
