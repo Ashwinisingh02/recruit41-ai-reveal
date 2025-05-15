@@ -67,7 +67,7 @@ const Product = () => {
         </section>
         
         {/* Process Section */}
-        <section className="section-padding bg-recruit-lightgray">
+        <section id="how-it-works" className="section-padding bg-recruit-lightgray">
           <div className="container-wide">
             <div className="text-center mb-16">
               <h2 className="mb-6">How It Works</h2>

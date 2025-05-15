@@ -37,6 +37,9 @@ const NavBar = () => {
           <Link to="/product" className="text-recruit-gray hover:text-recruit-dark transition-colors">
             Product
           </Link>
+          <Link to="/product#how-it-works" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+            How It Works
+          </Link>
           <Link to="/for-recruiters" className="text-recruit-gray hover:text-recruit-dark transition-colors">
             For Recruiters
           </Link>
@@ -79,6 +82,9 @@ const NavBar = () => {
         <div className="container-wide py-4 flex flex-col space-y-4">
           <Link to="/product" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
             Product
+          </Link>
+          <Link to="/product#how-it-works" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
+            How It Works
           </Link>
           <Link to="/for-recruiters" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
             For Recruiters
