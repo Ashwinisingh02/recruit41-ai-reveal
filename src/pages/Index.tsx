@@ -14,7 +14,9 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <Features />
+        <section id="how-it-works">
+          <Features />
+        </section>
         <FeatureCards />
         <SocialProof />
         <CallToAction />

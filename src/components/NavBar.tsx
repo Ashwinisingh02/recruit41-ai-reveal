@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,14 @@ const NavBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const getHowItWorksLink = () => {
+    return currentPath === '/' ? '/#how-it-works' : '/product#how-it-works';
+  };
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between py-4">
@@ -37,7 +46,7 @@ const NavBar = () => {
           <Link to="/product" className="text-recruit-gray hover:text-recruit-dark transition-colors">
             Product
           </Link>
-          <Link to="/product#how-it-works" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to={getHowItWorksLink()} className="text-recruit-gray hover:text-recruit-dark transition-colors">
             How It Works
           </Link>
           <Link to="/for-recruiters" className="text-recruit-gray hover:text-recruit-dark transition-colors">
@@ -83,7 +92,7 @@ const NavBar = () => {
           <Link to="/product" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
             Product
           </Link>
-          <Link to="/product#how-it-works" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to={getHowItWorksLink()} className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
             How It Works
           </Link>
           <Link to="/for-recruiters" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
