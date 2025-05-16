@@ -101,22 +101,31 @@ const SocialProof = () => {
           <div className="md:col-span-5 relative h-[400px] hidden md:block">
             <div className="absolute inset-0 w-full h-full">
               {universityLogos.map((logo, index) => {
-                // Calculate positions spread around a circular pattern
-                const radius = 150; // Adjust radius to fit the container
+                // Calculate positions in a more clustered pattern
+                const radius = 120; // Reduced radius to bring logos closer together
                 const angle = (index / universityLogos.length) * Math.PI * 2;
-                const centerX = 50; // Center X percentage
+                const centerX = 45; // Adjusted center X percentage
                 const centerY = 50; // Center Y percentage
                 
-                const x = centerX + Math.cos(angle) * radius / 4;
-                const y = centerY + Math.sin(angle) * radius / 3;
+                // Add some randomness to positions for a more natural look
+                const randomOffsetX = Math.random() * 10 - 5;
+                const randomOffsetY = Math.random() * 10 - 5;
+                
+                const x = centerX + Math.cos(angle) * radius / 4 + randomOffsetX;
+                const y = centerY + Math.sin(angle) * radius / 3 + randomOffsetY;
+                
+                // Random size between 14 and 20 to create bubble effect
+                const size = 14 + Math.floor(Math.random() * 6);
                 
                 return (
                   <div
                     key={logo.id}
-                    className="floating-logo absolute w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
+                    className="floating-logo absolute bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
+                      width: `${size}rem`,
+                      height: `${size}rem`,
                     }}
                   >
                     <span className="text-base font-bold text-gray-800">{logo.shortName}</span>
