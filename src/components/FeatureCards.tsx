@@ -98,12 +98,12 @@ const FeatureCards = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
+    <section ref={sectionRef} className="py-16 bg-gray-50">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center">Revolutionizing the Interview Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* World's Most Advanced Interview Platform */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-green-500 text-white">
               <div className="flex justify-end mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -116,7 +116,7 @@ const FeatureCards = () => {
           </div>
 
           {/* Performance */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-white shadow-sm border border-gray-100" className="flex flex-col">
               <h3 className="text-xl font-medium mb-4 text-gray-800">Performance</h3>
               <div className="space-y-3">
@@ -131,7 +131,7 @@ const FeatureCards = () => {
           </div>
 
           {/* Self Served */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-100">
               <div className="flex items-center justify-center h-full">
                 <h3 className="text-2xl font-medium text-gray-800">Self Served</h3>
@@ -140,7 +140,7 @@ const FeatureCards = () => {
           </div>
 
           {/* 10x */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-orange-100">
               <h3 className="text-6xl font-bold text-orange-500 mb-6">10x</h3>
               <div className="space-y-2">
@@ -152,7 +152,7 @@ const FeatureCards = () => {
           </div>
 
           {/* 80% reduction */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-green-100">
               <h3 className="text-6xl font-bold text-green-700 mb-4">80<span className="text-4xl">%</span></h3>
               <p className="text-green-700">reduction in time<br />to hire</p>
@@ -160,7 +160,7 @@ const FeatureCards = () => {
           </div>
 
           {/* Empty space or additional content */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-50">
               <div className="h-full flex items-center justify-center">
                 <p className="text-gray-400 text-center">Custom Interview Templates</p>
@@ -169,7 +169,7 @@ const FeatureCards = () => {
           </div>
 
           {/* Candidate Shortlisting */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-100">
               <h3 className="text-xl font-medium mb-6 text-gray-800">Candidate Shortlisting</h3>
               <div className="space-y-1">
@@ -182,7 +182,7 @@ const FeatureCards = () => {
           </div>
 
           {/* Detailed Interview Summary */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-blue-100">
               <div className="h-full flex flex-col items-center justify-center">
                 <h3 className="text-2xl font-medium text-blue-600 text-center">Detailed Interview Summary</h3>
@@ -191,7 +191,7 @@ const FeatureCards = () => {
           </div>
           
           {/* Biased */}
-          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 md:col-span-2">
+          <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow md:col-span-2">
             <FeatureCard color="bg-orange-400 text-white">
               <div className="h-full flex items-center justify-center">
                 <h3 className="text-2xl font-medium inline-flex items-center">

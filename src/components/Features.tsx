@@ -1,16 +1,68 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Features = () => {
+  // Create refs for each section to observe
+  const step1Ref = useRef<HTMLDivElement>(null);
+  const step2Ref = useRef<HTMLDivElement>(null);
+  const step3Ref = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          // Once animation is complete, unobserve to improve performance
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
+    // Observe all section refs
+    const elements = [
+      step1Ref.current,
+      step2Ref.current,
+      step3Ref.current,
+      statsRef.current,
+      videoRef.current,
+      cardsRef.current
+    ];
+
+    elements.forEach(el => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      elements.forEach(el => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
     <section className="section-padding bg-white">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
-          <div className="animate-fade-in">
+        <div 
+          ref={step1Ref} 
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700"
+        >
+          <div>
             <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">1</span>
             </div>
@@ -22,7 +74,7 @@ const Features = () => {
               Learn more <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
-          <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 shadow-sm animate-scale-in">
+          <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 shadow-sm">
             <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
               <div className="mb-6">
                 <h3 className="text-xl font-medium mb-2">Frontend Developer Interview</h3>
@@ -57,7 +109,10 @@ const Features = () => {
         </div>
         
         {/* Step 2 - Invite Candidates & Schedule */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 animate-fade-in">
+        <div 
+          ref={step2Ref} 
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-75"
+        >
           <div className="order-2 md:order-1 bg-green-50 p-8 rounded-2xl border border-green-100 shadow-sm">
             <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
               <div className="mb-6">
@@ -104,7 +159,10 @@ const Features = () => {
         </div>
         
         {/* Step 3 - Review AI-Powered Insights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 animate-fade-in">
+        <div 
+          ref={step3Ref} 
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-150"
+        >
           <div>
             <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">3</span>
@@ -117,7 +175,7 @@ const Features = () => {
               Learn more <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
-          <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm animate-scale-in">
+          <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm">
             <div className="rounded-lg overflow-hidden">
               <AspectRatio ratio={16 / 9} className="bg-white">
                 <img 
@@ -136,7 +194,10 @@ const Features = () => {
         </div>
 
         {/* Stats section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24 animate-fade-in">
+        <div 
+          ref={statsRef}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-300"
+        >
           <div className="text-center">
             <div className="inline-block bg-orange-100 rounded-full p-2 mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white">
@@ -187,7 +248,10 @@ const Features = () => {
         </div>
         
         {/* AI Interview Platform */}
-        <div className="mb-24 bg-black rounded-3xl overflow-hidden p-8 animate-fade-in">
+        <div 
+          ref={videoRef}
+          className="mb-24 bg-black rounded-3xl overflow-hidden p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300"
+        >
           <h3 className="text-2xl font-medium mb-6 text-white">AI Interview Platform - Real-time insights</h3>
           <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden relative">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -206,7 +270,10 @@ const Features = () => {
         </div>
         
         {/* 10x Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+        <div 
+          ref={cardsRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 translate-y-10 transition-all duration-700 delay-300"
+        >
           <Card className="bg-green-500 p-6 rounded-2xl text-white h-full overflow-hidden">
             <CardContent className="p-0">
               <div className="flex justify-between items-start mb-6">

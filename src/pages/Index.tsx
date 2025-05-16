@@ -14,7 +14,7 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <section id="how-it-works">
+        <section id="how-it-works" className="scroll-mt-24">
           <Features />
         </section>
         <FeatureCards />

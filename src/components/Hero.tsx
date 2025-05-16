@@ -7,8 +7,9 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="pt-28 pb-24 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-400 to-orange-500">
-      <div className="container-wide">
+    <section className="pt-28 pb-24 md:pt-36 md:pb-36 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent opacity-30"></div>
+      <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in text-white">
             <h1 className="mb-6 text-white">
@@ -19,16 +20,16 @@ const Hero = () => {
               Our AI-powered platform streamlines technical interviews, finds the right talent faster, and reduces bias in the hiring process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium" size="lg">
+              <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium hover-lift" size="lg">
                 Start Free Trial
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-base" size="lg">
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-base hover-lift" size="lg">
                 Schedule Demo <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
           </div>
           <div className="lg:relative lg:h-full flex items-center justify-center animate-scale-in">
-            <div className="relative w-full max-w-md mx-auto">
+            <div className="relative w-full max-w-md mx-auto hover-lift hover-glow">
               {/* Platform preview card with shadow */}
               <div className="bg-white p-6 rounded-xl shadow-xl border border-orange-100">
                 {/* Partner logos row */}
@@ -75,11 +76,13 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Secondary headline */}
+      {/* Secondary headline with enhanced visual */}
       <div className="absolute bottom-0 left-0 right-0 text-center pb-12 text-white">
-        <h2 className="text-2xl md:text-3xl font-medium">
-          Recruit41 elevates your hiring strategy from the ground up
-        </h2>
+        <div className="bg-black/20 backdrop-blur-sm py-4">
+          <h2 className="text-2xl md:text-3xl font-medium">
+            Recruit41 elevates your hiring strategy from the ground up
+          </h2>
+        </div>
       </div>
     </section>
   );

@@ -36,26 +36,26 @@ const NavBar = () => {
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between py-4">
         <div className="flex items-center">
-          <Link to="/" className="text-2xl font-medium text-recruit-dark">
-            Recruit<span className="text-orange-500">41</span>
+          <Link to="/" className="text-2xl font-medium text-recruit-dark group">
+            Recruit<span className="text-orange-500 group-hover:text-orange-600 transition-colors">41</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/product" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to="/product" className="text-recruit-gray hover:text-recruit-dark transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-orange-500 after:transition-all">
             Product
           </Link>
-          <Link to={getHowItWorksLink()} className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to={getHowItWorksLink()} className="text-recruit-gray hover:text-recruit-dark transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-orange-500 after:transition-all">
             How It Works
           </Link>
-          <Link to="/for-recruiters" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to="/for-recruiters" className="text-recruit-gray hover:text-recruit-dark transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-orange-500 after:transition-all">
             For Recruiters
           </Link>
-          <Link to="/pricing" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to="/pricing" className="text-recruit-gray hover:text-recruit-dark transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-orange-500 after:transition-all">
             Pricing
           </Link>
-          <Link to="/about" className="text-recruit-gray hover:text-recruit-dark transition-colors">
+          <Link to="/about" className="text-recruit-gray hover:text-recruit-dark transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-orange-500 after:transition-all">
             About
           </Link>
         </nav>
@@ -64,7 +64,7 @@ const NavBar = () => {
           <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500/5">
             Log In
           </Button>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white hover-lift">
             Get Started
           </Button>
         </div>
@@ -73,6 +73,8 @@ const NavBar = () => {
         <button 
           className="md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -86,8 +88,10 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden bg-white absolute w-full shadow-md transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'}`}>
+      {/* Mobile Menu with improved animation */}
+      <div 
+        className={`md:hidden bg-white absolute w-full shadow-md transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+      >
         <div className="container-wide py-4 flex flex-col space-y-4">
           <Link to="/product" className="py-2 text-recruit-gray hover:text-recruit-dark transition-colors">
             Product
