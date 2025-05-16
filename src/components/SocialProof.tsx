@@ -63,10 +63,17 @@ const testimonials = [
 const SocialProof = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  // Handle carousel index change - Fixed the TypeScript error
-  const handleCarouselChange = (index: number) => {
-    setActiveTestimonial(index);
-  };
+  // Fix: Define a React event handler that works with the Carousel's API
+  // Use useCallback to avoid recreating this function on each render
+  const handleCarouselChange = React.useCallback((api: any) => {
+    if (!api) {
+      return;
+    }
+    
+    // Get the current slide index from the API
+    const currentSlide = api.selectedScrollSnap();
+    setActiveTestimonial(currentSlide);
+  }, []);
 
   // Animation for the floating logos
   useEffect(() => {
@@ -127,7 +134,12 @@ const SocialProof = () => {
                 loop: true,
               }}
               className="w-full max-w-xl mx-auto"
-              onSelect={handleCarouselChange}
+              // Fix: Use the correct prop and event handler type
+              // The Carousel API exposes its API through the setApi prop
+              // We'll use that to track the current slide
+              setApi={(api) => {
+                api?.on('select', () => handleCarouselChange(api));
+              }}
             >
               <CarouselContent>
                 {testimonials.map((testimonial) => (
