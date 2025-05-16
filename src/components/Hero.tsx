@@ -76,7 +76,14 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Removed the secondary headline that was here */}
+      {/* Secondary headline with enhanced visual */}
+      <div className="absolute bottom-0 left-0 right-0 text-center pb-12 text-white">
+        <div className="bg-black/20 backdrop-blur-sm py-4">
+          <h2 className="text-2xl md:text-3xl font-medium">
+            Recruit41 elevates your hiring strategy from the ground up
+          </h2>
+        </div>
+      </div>
     </section>
   );
 };
