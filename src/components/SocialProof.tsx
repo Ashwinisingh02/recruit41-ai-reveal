@@ -63,6 +63,11 @@ const testimonials = [
 const SocialProof = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
+  // Handle carousel index change - Fixed the TypeScript error
+  const handleCarouselChange = (index: number) => {
+    setActiveTestimonial(index);
+  };
+
   // Animation for the floating logos
   useEffect(() => {
     const logos = document.querySelectorAll('.floating-logo');
@@ -73,8 +78,8 @@ const SocialProof = () => {
   }, []);
 
   return (
-    <section className="section-padding bg-white overflow-hidden">
-      <div className="container-wide max-w-7xl mx-auto">
+    <section className="section-padding bg-white overflow-hidden py-24">
+      <div className="container max-w-7xl mx-auto px-4">
         {/* Hero Section with Heading and Tagline */}
         <div className="text-center mb-16 relative z-10">
           <p className="text-gray-600 font-medium mb-2 animate-fade-in">With no limits,</p>
@@ -84,42 +89,45 @@ const SocialProof = () => {
         </div>
 
         {/* Main Content Area with Logos and Testimonials */}
-        <div className="relative">
-          {/* Floating University Logos */}
-          <div className="absolute inset-0 -z-0 overflow-visible" aria-hidden="true">
-            {universityLogos.map((logo, index) => {
-              // Calculate positions for the logos in a circular pattern
-              const angle = (index / universityLogos.length) * Math.PI * 2;
-              const radius = 200; // Adjust as needed for spacing
-              const top = 50 + Math.sin(angle) * radius;
-              const left = 50 + Math.cos(angle) * radius;
-              
-              return (
-                <div
-                  key={logo.id}
-                  className="floating-logo absolute w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center transform hover:scale-110 transition-transform"
-                  style={{
-                    top: `${top}%`,
-                    left: `${left}%`,
-                    transform: 'translate(-50%, -50%)',
-                    animation: 'float 6s ease-in-out infinite',
-                  }}
-                >
-                  <span className="text-base font-bold text-gray-800">{logo.shortName}</span>
-                </div>
-              );
-            })}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* University Logos Section - Left Side */}
+          <div className="md:col-span-5 relative h-[400px] hidden md:block">
+            <div className="absolute inset-0 w-full h-full">
+              {universityLogos.map((logo, index) => {
+                // Calculate positions spread around a circular pattern
+                const radius = 150; // Adjust radius to fit the container
+                const angle = (index / universityLogos.length) * Math.PI * 2;
+                const centerX = 50; // Center X percentage
+                const centerY = 50; // Center Y percentage
+                
+                const x = centerX + Math.cos(angle) * radius / 4;
+                const y = centerY + Math.sin(angle) * radius / 3;
+                
+                return (
+                  <div
+                    key={logo.id}
+                    className="floating-logo absolute w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
+                    style={{
+                      left: `${x}%`,
+                      top: `${y}%`,
+                    }}
+                  >
+                    <span className="text-base font-bold text-gray-800">{logo.shortName}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Testimonial Carousel */}
-          <div className="relative z-10 max-w-3xl mx-auto">
+          {/* Testimonial Carousel - Right Side */}
+          <div className="md:col-span-7 relative z-10">
             <Carousel
               opts={{
                 align: "center",
                 loop: true,
               }}
               className="w-full max-w-xl mx-auto"
-              onSelect={(index) => setActiveTestimonial(index)}
+              onSelect={handleCarouselChange}
             >
               <CarouselContent>
                 {testimonials.map((testimonial) => (
@@ -164,24 +172,25 @@ const SocialProof = () => {
           </div>
         </div>
       </div>
-      
-      {/* CSS for floating animation */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translate(-50%, -50%) translateY(0px);
+
+      <style>
+        {`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-15px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
           }
-          50% {
-            transform: translate(-50%, -50%) translateY(-15px);
+          .floating-logo {
+            animation: float 6s ease-in-out infinite;
           }
-          100% {
-            transform: translate(-50%, -50%) translateY(0px);
-          }
-        }
-        .floating-logo {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
