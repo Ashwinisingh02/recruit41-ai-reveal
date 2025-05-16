@@ -23,7 +23,7 @@ const Hero = () => {
               <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium hover-lift" size="lg">
                 Start Free Trial
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-base hover-lift" size="lg">
+              <Button variant="outline" className="border-white text-orange-500 bg-white/10 hover:bg-white/20 text-base hover-lift" size="lg">
                 Schedule Demo <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
@@ -76,14 +76,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Secondary headline with enhanced visual */}
-      <div className="absolute bottom-0 left-0 right-0 text-center pb-12 text-white">
-        <div className="bg-black/20 backdrop-blur-sm py-4">
-          <h2 className="text-2xl md:text-3xl font-medium">
-            Recruit41 elevates your hiring strategy from the ground up
-          </h2>
-        </div>
-      </div>
+      {/* Removed the secondary headline that was here */}
     </section>
   );
 };
