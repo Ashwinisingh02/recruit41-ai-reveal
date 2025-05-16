@@ -18,7 +18,9 @@ const Index = () => {
           <Features />
         </section>
         <FeatureCards />
-        <SocialProof />
+        <section id="testimonials" className="scroll-mt-24">
+          <SocialProof />
+        </section>
         <CallToAction />
       </main>
       <Footer />
