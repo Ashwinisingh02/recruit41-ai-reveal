@@ -1,9 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const Features = () => {
   // Create refs for each section to observe
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -12,14 +10,12 @@ const Features = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.2
     };
-
     const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -30,38 +26,23 @@ const Features = () => {
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
-    // Observe all section refs
-    const elements = [
-      step1Ref.current,
-      step2Ref.current,
-      step3Ref.current,
-      statsRef.current,
-      videoRef.current,
-      cardsRef.current
-    ];
 
+    // Observe all section refs
+    const elements = [step1Ref.current, step2Ref.current, step3Ref.current, statsRef.current, videoRef.current, cardsRef.current];
     elements.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elements.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
-  return (
-    <section className="section-padding bg-white">
+  return <section className="section-padding bg-white">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
-        <div 
-          ref={step1Ref} 
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700"
-        >
+        <div ref={step1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700">
           <div>
             <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">1</span>
@@ -109,10 +90,7 @@ const Features = () => {
         </div>
         
         {/* Step 2 - Invite Candidates & Schedule */}
-        <div 
-          ref={step2Ref} 
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-75"
-        >
+        <div ref={step2Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-75">
           <div className="order-2 md:order-1 bg-green-50 p-8 rounded-2xl border border-green-100 shadow-sm">
             <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
               <div className="mb-6">
@@ -159,10 +137,7 @@ const Features = () => {
         </div>
         
         {/* Step 3 - Review AI-Powered Insights */}
-        <div 
-          ref={step3Ref} 
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-150"
-        >
+        <div ref={step3Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-150">
           <div>
             <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">3</span>
@@ -178,26 +153,19 @@ const Features = () => {
           <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm">
             <div className="rounded-lg overflow-hidden">
               <AspectRatio ratio={16 / 9} className="bg-white">
-                <img 
-                  src="/lovable-uploads/cb9cc1ae-4408-4cad-95c1-0b59eb6979cd.png" 
-                  alt="Candidate Report Insights" 
-                  className="w-full h-full object-contain"
-                  style={{ maxHeight: '400px' }}
-                  onError={(e) => {
-                    console.error('Image failed to load');
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                <img src="/lovable-uploads/cb9cc1ae-4408-4cad-95c1-0b59eb6979cd.png" alt="Candidate Report Insights" className="w-full h-full object-contain" style={{
+                maxHeight: '400px'
+              }} onError={e => {
+                console.error('Image failed to load');
+                e.currentTarget.style.display = 'none';
+              }} />
               </AspectRatio>
             </div>
           </div>
         </div>
 
         {/* Stats section */}
-        <div 
-          ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-300"
-        >
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-300">
           <div className="text-center">
             <div className="inline-block bg-orange-100 rounded-full p-2 mb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white">
@@ -248,10 +216,7 @@ const Features = () => {
         </div>
         
         {/* AI Interview Platform */}
-        <div 
-          ref={videoRef}
-          className="mb-24 bg-black rounded-3xl overflow-hidden p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300"
-        >
+        <div ref={videoRef} className="mb-24 bg-black rounded-3xl overflow-hidden p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300">
           <h3 className="text-2xl font-medium mb-6 text-white">AI Interview Platform - Real-time insights</h3>
           <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden relative">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -270,71 +235,14 @@ const Features = () => {
         </div>
         
         {/* 10x Feature Cards */}
-        <div 
-          ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 translate-y-10 transition-all duration-700 delay-300"
-        >
-          <Card className="bg-green-500 p-6 rounded-2xl text-white h-full overflow-hidden">
-            <CardContent className="p-0">
-              <div className="flex justify-between items-start mb-6">
-                <h4 className="text-xl font-medium">Unbiased<br />Smart analysis</h4>
-                <ArrowRight className="w-6 h-6 text-white/70" />
-              </div>
-              <p className="text-sm text-white/80">Our AI evaluates technical skills objectively, eliminating human bias and ensuring fair assessment for all candidates.</p>
-            </CardContent>
-          </Card>
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 translate-y-10 transition-all duration-700 delay-300">
           
-          <Card className="bg-gray-100 p-6 rounded-2xl relative h-full">
-            <CardContent className="p-0">
-              <div className="absolute right-6 top-6 w-16 h-16 bg-orange-50 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-orange-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg>
-              </div>
-              <div className="mt-24">
-                <h4 className="text-xl font-medium mb-3">Shortlisted Candidates</h4>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    <span className="text-sm text-gray-600">JavaScript Proficiency</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    <span className="text-sm text-gray-600">React Framework Knowledge</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    <span className="text-sm text-gray-600">Problem-solving Skills</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    <span className="text-sm text-gray-600">Communication Skills</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
           
-          <Card className="bg-orange-50 p-6 rounded-2xl text-orange-600 h-full">
-            <CardContent className="p-0">
-              <div className="text-3xl font-bold mb-4">10x</div>
-              <h4 className="text-xl font-medium mb-3">Constructive Feedback</h4>
-              <p className="text-sm text-gray-600 mb-6">Our AI provides detailed, actionable feedback for every candidate, helping them improve and giving recruiters deeper insights.</p>
-              <button className="bg-orange-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-orange-600 transition-colors">Learn More</button>
-            </CardContent>
-          </Card>
+          
+          
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Features;
