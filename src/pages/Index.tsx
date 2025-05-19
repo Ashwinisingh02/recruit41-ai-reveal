@@ -2,29 +2,38 @@
 import React from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import FeatureCards from '@/components/FeatureCards';
-import SocialProof from '@/components/SocialProof';
+import HowItWorks from '@/components/HowItWorks';
+import Differentiators from '@/components/Differentiators';
+import UseCases from '@/components/UseCases';
+import Testimonials from '@/components/Testimonials';
+import Founders from '@/components/Founders';
+import Security from '@/components/Security';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <main>
-        <Hero />
-        <section id="how-it-works" className="scroll-mt-24">
-          <Features />
-        </section>
-        <FeatureCards />
-        <section id="testimonials" className="scroll-mt-24">
-          <SocialProof />
-        </section>
-        <CallToAction />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-background">
+        <NavBar />
+        <main>
+          <Hero />
+          <section id="how-it-works" className="scroll-mt-24">
+            <HowItWorks />
+          </section>
+          <Differentiators />
+          <UseCases />
+          <section id="testimonials" className="scroll-mt-24">
+            <Testimonials />
+          </section>
+          <Founders />
+          <Security />
+          <CallToAction />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 

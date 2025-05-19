@@ -1,68 +1,68 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ArrowRight } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 const Hero = () => {
-  return <section className="pt-28 pb-24 md:pt-36 md:pb-36 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent opacity-30 bg-orange-300"></div>
+  return (
+    <section className="pt-28 pb-24 md:pt-36 md:pb-36 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-500/90 to-orange-600/90 dark:from-gray-900 dark:to-gray-800">
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in text-white">
             <h1 className="mb-6 text-white">
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold mb-4">LeetCode style</span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold">interviews are broken!</span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold mb-4">An Agentic Platform</span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold">for Hiring</span>
             </h1>
             <p className="text-xl md:text-2xl text-white font-light mb-10 max-w-lg leading-relaxed">
-              Our AI-powered platform streamlines technical interviews, finds the right talent faster, and reduces bias in the hiring process.
+              Hire faster, fairer, and with greater confidence—powered by modular AI agents. Over 2 million candidate interactions and counting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium hover-lift" size="lg">
-                Start Free Trial
+              <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium hover-lift dark:bg-gray-800 dark:text-orange-400 dark:hover:bg-gray-700" size="lg">
+                Get a Demo
               </Button>
               <Button variant="outline" size="lg" className="border-white bg-white/10 hover:bg-white/20 text-base hover-lift text-slate-50">
-                Schedule Demo <ArrowRight className="ml-1 h-4 w-4" />
+                How It Works <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
           </div>
           <div className="lg:relative lg:h-full flex items-center justify-center animate-scale-in">
             <div className="relative w-full max-w-md mx-auto hover-lift hover-glow">
-              {/* Platform preview card with shadow */}
-              <div className="bg-white p-6 rounded-xl shadow-xl border border-orange-100">
-                {/* Partner logos row */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl border border-orange-100 dark:border-gray-700">
                 <div className="flex justify-center items-center gap-4 mb-6">
-                  {['Google', 'Meta', 'Amazon', 'Apple', 'Microsoft', 'Uber'].map((company, index) => <div key={index} className="w-10 h-10 bg-gray-100 rounded-md flex items-center justify-center">
-                      <span className="text-xs text-gray-600 font-medium">{company.charAt(0)}</span>
-                    </div>)}
+                  {['AI', 'ML', 'NLP', 'CV', 'LLM', 'GPT'].map((tech, index) => (
+                    <div key={index} className="w-10 h-10 bg-orange-50 dark:bg-gray-700 rounded-md flex items-center justify-center">
+                      <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">{tech}</span>
+                    </div>
+                  ))}
                 </div>
                 
-                {/* Video/screenshot placeholder */}
-                <div className="rounded-lg overflow-hidden border border-gray-100 mb-6">
-                  <AspectRatio ratio={16 / 9} className="bg-gray-50">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center">
+                <div className="rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700 mb-6">
+                  <AspectRatio ratio={16 / 9} className="bg-gray-50 dark:bg-gray-900">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex flex-col items-center justify-center">
                       <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
                           <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <p className="text-gray-500 font-medium">Platform Demo</p>
+                      <p className="text-gray-500 dark:text-gray-400 font-medium">Platform Demo</p>
                     </div>
                   </AspectRatio>
                 </div>
                 
-                {/* Stats row */}
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="text-center p-2 bg-orange-50 rounded-lg">
-                    <p className="text-lg font-bold text-orange-500">87%</p>
-                    <p className="text-xs text-gray-500">Better Hires</p>
+                  <div className="text-center p-2 bg-orange-50 dark:bg-gray-700 rounded-lg">
+                    <p className="text-lg font-bold text-orange-500 dark:text-orange-400">87%</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Better Hires</p>
                   </div>
-                  <div className="text-center p-2 bg-orange-50 rounded-lg">
-                    <p className="text-lg font-bold text-orange-500">65%</p>
-                    <p className="text-xs text-gray-500">Time Saved</p>
+                  <div className="text-center p-2 bg-orange-50 dark:bg-gray-700 rounded-lg">
+                    <p className="text-lg font-bold text-orange-500 dark:text-orange-400">65%</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Time Saved</p>
                   </div>
-                  <div className="text-center p-2 bg-orange-50 rounded-lg">
-                    <p className="text-lg font-bold text-orange-500">93%</p>
-                    <p className="text-xs text-gray-500">Satisfaction</p>
+                  <div className="text-center p-2 bg-orange-50 dark:bg-gray-700 rounded-lg">
+                    <p className="text-lg font-bold text-orange-500 dark:text-orange-400">93%</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -70,8 +70,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Removed the secondary headline that was here */}
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
