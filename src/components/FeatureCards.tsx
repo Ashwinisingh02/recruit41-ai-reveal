@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
@@ -29,8 +30,8 @@ const PerformanceIndicator = ({
     orange: 'bg-orange-500',
     red: 'bg-red-500'
   };
-  return <div className="flex items-center justify-between mb-2">
-      <span className="text-gray-700">{skill}</span>
+  return <div className="flex items-center gap-2 mb-2">
+      <span className="text-gray-700 font-medium">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
     </div>;
 };
@@ -122,17 +123,15 @@ const FeatureCards = () => {
             </FeatureCard>
           </div>
 
-          {/* Performance */}
+          {/* Performance - Updated to match the provided image */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-white shadow-sm border border-gray-100" className="flex flex-col">
-              <h3 className="text-xl font-medium mb-4 text-gray-800">Performance</h3>
-              
-              {/* Candidate Video - Use an embedded video that will definitely work */}
-              <div className="mb-4 rounded-lg overflow-hidden border border-gray-100">
-                <AspectRatio ratio={16 / 9}>
+            <FeatureCard color="bg-white shadow-sm border border-gray-100" className="p-0 overflow-hidden">
+              {/* Candidate Video in a rounded container at the top */}
+              <div className="w-full overflow-hidden">
+                <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
                   {!videoLoaded && (
-                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                    <div className="w-full h-full">
                       <img 
                         src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" 
                         alt="Candidate" 
@@ -157,15 +156,20 @@ const FeatureCards = () => {
                   </video>
                 </AspectRatio>
               </div>
-              
-              {/* Skills */}
-              <div className="space-y-3">
-                <PerformanceIndicator skill="Python" level="green" />
-                <PerformanceIndicator skill="SQL" level="orange" />
-                <PerformanceIndicator skill="JAVA" level="green" />
-                <PerformanceIndicator skill="Power BI" level="red" />
-                <PerformanceIndicator skill="Tableau" level="orange" />
-                <PerformanceIndicator skill="Google Analytics" level="orange" />
+
+              {/* Performance title and skills below the video */}
+              <div className="p-5">
+                <h3 className="text-xl font-medium mb-4 text-center text-gray-800">Performance</h3>
+                
+                {/* Skills arranged in two columns as shown in the image */}
+                <div className="grid grid-cols-2 gap-x-4">
+                  <PerformanceIndicator skill="Python" level="green" />
+                  <PerformanceIndicator skill="Power BI" level="red" />
+                  <PerformanceIndicator skill="SQL" level="orange" />
+                  <PerformanceIndicator skill="Tableau" level="orange" />
+                  <PerformanceIndicator skill="JAVA" level="green" />
+                  <PerformanceIndicator skill="Google Analytics" level="orange" />
+                </div>
               </div>
             </FeatureCard>
           </div>
