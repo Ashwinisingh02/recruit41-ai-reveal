@@ -126,7 +126,7 @@ const FeatureCards = () => {
           {/* Self Served */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-100">
-              <div className="flex items-center justify-center h-full bg-slate-50">
+              <div className="flex items-center justify-center h-full bg-slate-100">
                 <h3 className="text-2xl font-medium text-gray-800">Self Served</h3>
               </div>
             </FeatureCard>
