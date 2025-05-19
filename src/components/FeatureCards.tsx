@@ -118,7 +118,7 @@ const FeatureCards = () => {
                 <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
                   {!videoLoaded && <div className="w-full h-full">
-                      <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" alt="Candidate" className="w-full h-full object-cover rounded-2xl " />
+                      <img alt="Candidate" className="w-full h-full object-cover rounded-2xl " src="/lovable-uploads/3b2e29e4-830c-428e-8601-0e8166b741ac.png" />
                     </div>}
                   <video className="w-full h-full object-cover" autoPlay loop muted playsInline onLoadedData={() => setVideoLoaded(true)} style={{
                   display: videoLoaded ? 'block' : 'none'
@@ -134,7 +134,7 @@ const FeatureCards = () => {
 
               {/* Performance title and skills below the video */}
               <div className="p-5 px-[6px] py-0 my-0">
-                <h3 className="text-xl font-medium mb-4 text-gray-800 text-left">Performance</h3>
+                <h3 className="text-xl font-medium mb-4 text-gray-800 text-left px-0 py-[11px]">Performance</h3>
                 
                 {/* Skills arranged in two columns as shown in the image */}
                 <div className="grid grid-cols-2 gap-x-4">
