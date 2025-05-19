@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface FeatureCardProps {
@@ -63,6 +62,8 @@ const CandidateRow = ({
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
+  // Add a state to track if the video has loaded
+  const [videoLoaded, setVideoLoaded] = useState(false);
   
   useEffect(() => {
     const observerOptions = {
@@ -126,18 +127,31 @@ const FeatureCards = () => {
             <FeatureCard color="bg-white shadow-sm border border-gray-100" className="flex flex-col">
               <h3 className="text-xl font-medium mb-4 text-gray-800">Performance</h3>
               
-              {/* Candidate Video */}
+              {/* Candidate Video - Use an embedded video that will definitely work */}
               <div className="mb-4 rounded-lg overflow-hidden border border-gray-100">
                 <AspectRatio ratio={16 / 9}>
+                  {/* We're using a fallback image if video doesn't load */}
+                  {!videoLoaded && (
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                      <img 
+                        src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" 
+                        alt="Candidate" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
                   <video 
                     className="w-full h-full object-cover"
                     autoPlay 
                     loop 
                     muted 
                     playsInline
-                    poster="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80"
+                    onLoadedData={() => setVideoLoaded(true)}
+                    style={{ display: videoLoaded ? 'block' : 'none' }}
                   >
-                    {/* Replace with your actual video file */}
+                    {/* First source is using a direct URL to a sample video */}
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-typing-on-a-laptop-in-a-cafe-479-small.mp4" type="video/mp4" />
+                    {/* Fallback to the uploaded video if it exists */}
                     <source src="/lovable-uploads/candidate-interview.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
