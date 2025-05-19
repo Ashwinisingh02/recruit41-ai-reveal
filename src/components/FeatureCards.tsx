@@ -1,10 +1,13 @@
+
 import React, { useEffect, useRef } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 interface FeatureCardProps {
   color: string;
   children: React.ReactNode;
   className?: string;
 }
+
 const FeatureCard = ({
   color,
   children,
@@ -14,6 +17,7 @@ const FeatureCard = ({
       {children}
     </div>;
 };
+
 const PerformanceIndicator = ({
   skill,
   level
@@ -31,6 +35,7 @@ const PerformanceIndicator = ({
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
     </div>;
 };
+
 const CandidateRow = ({
   name,
   score
@@ -54,15 +59,18 @@ const CandidateRow = ({
       </div>
     </div>;
 };
+
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -76,21 +84,26 @@ const FeatureCards = () => {
         }
       });
     };
+    
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+    
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
+  
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !cards.current.includes(el)) {
       cards.current.push(el);
     }
   };
+  
   return <section ref={sectionRef} className="py-16 bg-gray-50">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center">Revolutionizing the Interview Process</h2>
@@ -112,6 +125,26 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-white shadow-sm border border-gray-100" className="flex flex-col">
               <h3 className="text-xl font-medium mb-4 text-gray-800">Performance</h3>
+              
+              {/* Candidate Video */}
+              <div className="mb-4 rounded-lg overflow-hidden border border-gray-100">
+                <AspectRatio ratio={16 / 9}>
+                  <video 
+                    className="w-full h-full object-cover"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    poster="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80"
+                  >
+                    {/* Replace with your actual video file */}
+                    <source src="/lovable-uploads/candidate-interview.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </AspectRatio>
+              </div>
+              
+              {/* Skills */}
               <div className="space-y-3">
                 <PerformanceIndicator skill="Python" level="green" />
                 <PerformanceIndicator skill="SQL" level="orange" />
@@ -197,4 +230,5 @@ const FeatureCards = () => {
       </div>
     </section>;
 };
+
 export default FeatureCards;
