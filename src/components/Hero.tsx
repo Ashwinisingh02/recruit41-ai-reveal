@@ -1,14 +1,11 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ArrowRight } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <section className="pt-28 pb-24 md:pt-36 md:pb-36 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent opacity-30"></div>
+  return <section className="pt-28 pb-24 md:pt-36 md:pb-36 min-h-[90vh] flex items-center relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent opacity-30 bg-orange-300"></div>
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in text-white">
@@ -23,7 +20,7 @@ const Hero = () => {
               <Button className="bg-white text-orange-500 hover:bg-gray-100 text-base font-medium hover-lift" size="lg">
                 Start Free Trial
               </Button>
-              <Button variant="outline" className="border-white text-orange-500 bg-white/10 hover:bg-white/20 text-base hover-lift" size="lg">
+              <Button variant="outline" size="lg" className="border-white bg-white/10 hover:bg-white/20 text-base hover-lift text-slate-50">
                 Schedule Demo <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
@@ -34,16 +31,14 @@ const Hero = () => {
               <div className="bg-white p-6 rounded-xl shadow-xl border border-orange-100">
                 {/* Partner logos row */}
                 <div className="flex justify-center items-center gap-4 mb-6">
-                  {['Google', 'Meta', 'Amazon', 'Apple', 'Microsoft', 'Uber'].map((company, index) => (
-                    <div key={index} className="w-10 h-10 bg-gray-100 rounded-md flex items-center justify-center">
+                  {['Google', 'Meta', 'Amazon', 'Apple', 'Microsoft', 'Uber'].map((company, index) => <div key={index} className="w-10 h-10 bg-gray-100 rounded-md flex items-center justify-center">
                       <span className="text-xs text-gray-600 font-medium">{company.charAt(0)}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 
                 {/* Video/screenshot placeholder */}
                 <div className="rounded-lg overflow-hidden border border-gray-100 mb-6">
-                  <AspectRatio ratio={16/9} className="bg-gray-50">
+                  <AspectRatio ratio={16 / 9} className="bg-gray-50">
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center">
                       <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
@@ -77,8 +72,6 @@ const Hero = () => {
       </div>
       
       {/* Removed the secondary headline that was here */}
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
