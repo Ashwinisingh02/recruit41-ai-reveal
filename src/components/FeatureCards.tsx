@@ -1,13 +1,10 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 interface FeatureCardProps {
   color: string;
   children: React.ReactNode;
   className?: string;
 }
-
 const FeatureCard = ({
   color,
   children,
@@ -17,7 +14,6 @@ const FeatureCard = ({
       {children}
     </div>;
 };
-
 const PerformanceIndicator = ({
   skill,
   level
@@ -31,11 +27,10 @@ const PerformanceIndicator = ({
     red: 'bg-red-500'
   };
   return <div className="flex items-center gap-2 mb-2">
-      <span className="text-gray-700 font-medium">{skill}</span>
+      <span className="text-gray-700 font-medium text-xs">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
     </div>;
 };
-
 const CandidateRow = ({
   name,
   score
@@ -59,20 +54,17 @@ const CandidateRow = ({
       </div>
     </div>;
 };
-
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
   // Add a state to track if the video has loaded
   const [videoLoaded, setVideoLoaded] = useState(false);
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -86,26 +78,21 @@ const FeatureCards = () => {
         }
       });
     };
-    
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-  
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !cards.current.includes(el)) {
       cards.current.push(el);
     }
   };
-  
   return <section ref={sectionRef} className="py-16 bg-gray-50">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center">Revolutionizing the Interview Process</h2>
@@ -130,24 +117,12 @@ const FeatureCards = () => {
               <div className="w-full overflow-hidden">
                 <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
-                  {!videoLoaded && (
-                    <div className="w-full h-full">
-                      <img 
-                        src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" 
-                        alt="Candidate" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <video 
-                    className="w-full h-full object-cover"
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    onLoadedData={() => setVideoLoaded(true)}
-                    style={{ display: videoLoaded ? 'block' : 'none' }}
-                  >
+                  {!videoLoaded && <div className="w-full h-full">
+                      <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80" alt="Candidate" className="w-full h-full object-cover rounded-2xl " />
+                    </div>}
+                  <video className="w-full h-full object-cover" autoPlay loop muted playsInline onLoadedData={() => setVideoLoaded(true)} style={{
+                  display: videoLoaded ? 'block' : 'none'
+                }}>
                     {/* First source is using a direct URL to a sample video */}
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-typing-on-a-laptop-in-a-cafe-479-small.mp4" type="video/mp4" />
                     {/* Fallback to the uploaded video if it exists */}
@@ -158,8 +133,8 @@ const FeatureCards = () => {
               </div>
 
               {/* Performance title and skills below the video */}
-              <div className="p-5">
-                <h3 className="text-xl font-medium mb-4 text-center text-gray-800">Performance</h3>
+              <div className="p-5 px-[6px] py-0 my-0">
+                <h3 className="text-xl font-medium mb-4 text-gray-800 text-left">Performance</h3>
                 
                 {/* Skills arranged in two columns as shown in the image */}
                 <div className="grid grid-cols-2 gap-x-4">
@@ -248,5 +223,4 @@ const FeatureCards = () => {
       </div>
     </section>;
 };
-
 export default FeatureCards;
