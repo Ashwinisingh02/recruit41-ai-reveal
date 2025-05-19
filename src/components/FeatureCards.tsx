@@ -1,47 +1,50 @@
-
 import React, { useEffect, useRef } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 interface FeatureCardProps {
   color: string;
   children: React.ReactNode;
   className?: string;
 }
-
-const FeatureCard = ({ color, children, className = "" }: FeatureCardProps) => {
-  return (
-    <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
+const FeatureCard = ({
+  color,
+  children,
+  className = ""
+}: FeatureCardProps) => {
+  return <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
       {children}
-    </div>
-  );
+    </div>;
 };
-
-const PerformanceIndicator = ({ skill, level }: { skill: string; level: 'green' | 'orange' | 'red' }) => {
+const PerformanceIndicator = ({
+  skill,
+  level
+}: {
+  skill: string;
+  level: 'green' | 'orange' | 'red';
+}) => {
   const colorMap = {
     green: 'bg-green-500',
     orange: 'bg-orange-500',
     red: 'bg-red-500'
   };
-  
-  return (
-    <div className="flex items-center justify-between mb-2">
+  return <div className="flex items-center justify-between mb-2">
       <span className="text-gray-700">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
-    </div>
-  );
+    </div>;
 };
-
-const CandidateRow = ({ name, score }: { name: string; score: string | number; }) => {
+const CandidateRow = ({
+  name,
+  score
+}: {
+  name: string;
+  score: string | number;
+}) => {
   // Determine color based on score
   let scoreColor = "bg-green-100 text-green-800";
   if (typeof score === 'number' || !isNaN(Number(score))) {
     const numScore = Number(score);
-    if (numScore < 2.0) scoreColor = "bg-red-100 text-red-800";
-    else if (numScore < 3.5) scoreColor = "bg-orange-100 text-orange-800";
+    if (numScore < 2.0) scoreColor = "bg-red-100 text-red-800";else if (numScore < 3.5) scoreColor = "bg-orange-100 text-orange-800";
   }
-
-  return (
-    <div className="flex items-center justify-between mb-3">
+  return <div className="flex items-center justify-between mb-3">
       <div className="flex items-center">
         <div className="w-8 h-8 rounded-full bg-gray-200 mr-2"></div>
         <span className="text-sm">{name}</span>
@@ -49,21 +52,17 @@ const CandidateRow = ({ name, score }: { name: string; score: string | number; }
       <div className={`px-2 py-1 rounded-full text-xs font-medium ${scoreColor}`}>
         {score}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -77,28 +76,22 @@ const FeatureCards = () => {
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !cards.current.includes(el)) {
       cards.current.push(el);
     }
   };
-
-  return (
-    <section ref={sectionRef} className="py-16 bg-gray-50">
+  return <section ref={sectionRef} className="py-16 bg-gray-50">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center">Revolutionizing the Interview Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -110,8 +103,8 @@ const FeatureCards = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-2">World's Most Advanced</h3>
-              <p className="text-xl">Interview Platform</p>
+              <h3 className="font-bold mb-2 text-slate-50 text-4xl">World's Most Advanced</h3>
+              <p className="text-xl text-slate-50">Interview Platform</p>
             </FeatureCard>
           </div>
 
@@ -133,7 +126,7 @@ const FeatureCards = () => {
           {/* Self Served */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-100">
-              <div className="flex items-center justify-center h-full">
+              <div className="flex items-center justify-center h-full bg-slate-50">
                 <h3 className="text-2xl font-medium text-gray-800">Self Served</h3>
               </div>
             </FeatureCard>
@@ -154,7 +147,7 @@ const FeatureCards = () => {
           {/* 80% reduction */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-green-100">
-              <h3 className="text-6xl font-bold text-green-700 mb-4">80<span className="text-4xl">%</span></h3>
+              <h3 className="font-bold text-green-700 mb-4 text-8xl">80<span className="text-4xl">%</span></h3>
               <p className="text-green-700">reduction in time<br />to hire</p>
             </FeatureCard>
           </div>
@@ -202,8 +195,6 @@ const FeatureCards = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FeatureCards;
