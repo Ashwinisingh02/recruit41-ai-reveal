@@ -35,7 +35,7 @@ const NavBar = () => {
       <div className="container-wide flex items-center justify-between py-4">
         <div className="flex items-center">
           <Link to="/" className="text-2xl font-medium text-recruit-dark dark:text-white group">
-            Recruit<span className="transition-colors text-slate-950">41</span>
+            Recruit<span className="transition-colors text-slate-50">41</span>
           </Link>
         </div>
 
