@@ -1,40 +1,45 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 interface FeatureCardProps {
   color: string;
   children: React.ReactNode;
   className?: string;
 }
-
-const FeatureCard = ({ color, children, className = "" }: FeatureCardProps) => {
-  return (
-    <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
+const FeatureCard = ({
+  color,
+  children,
+  className = ""
+}: FeatureCardProps) => {
+  return <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
       {children}
-    </div>
-  );
+    </div>;
 };
-
-const PerformanceIndicator = ({ skill, level }: { skill: string; level: 'green' | 'orange' | 'red' }) => {
+const PerformanceIndicator = ({
+  skill,
+  level
+}: {
+  skill: string;
+  level: 'green' | 'orange' | 'red';
+}) => {
   const colorMap = {
     green: 'bg-green-500',
     orange: 'bg-orange-500',
     red: 'bg-red-500'
   };
-
-  return (
-    <div className="flex items-center gap-2 mb-2">
+  return <div className="flex items-center gap-2 mb-2">
       <span className="text-gray-700 dark:text-gray-300 font-medium text-xs">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
-    </div>
-  );
+    </div>;
 };
-
-const CandidateRow = ({ name, score }: { name: string; score: string | number }) => {
+const CandidateRow = ({
+  name,
+  score
+}: {
+  name: string;
+  score: string | number;
+}) => {
   // Determine color based on score
   let scoreColor = "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100";
-  
   if (typeof score === 'number' || !isNaN(Number(score))) {
     const numScore = Number(score);
     if (numScore < 2.0) {
@@ -43,9 +48,7 @@ const CandidateRow = ({ name, score }: { name: string; score: string | number })
       scoreColor = "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100";
     }
   }
-
-  return (
-    <div className="flex items-center justify-between mb-3">
+  return <div className="flex items-center justify-between mb-3">
       <div className="flex items-center">
         <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 mr-2"></div>
         <span className="text-sm dark:text-gray-200">{name}</span>
@@ -53,23 +56,19 @@ const CandidateRow = ({ name, score }: { name: string; score: string | number })
       <div className={`px-2 py-1 rounded-full text-xs font-medium ${scoreColor}`}>
         {score}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
   // Add a state to track if the video has loaded
   const [videoLoaded, setVideoLoaded] = useState(false);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -83,28 +82,22 @@ const FeatureCards = () => {
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !cards.current.includes(el)) {
       cards.current.push(el);
     }
   };
-
-  return (
-    <section ref={sectionRef} className="py-16 bg-gray-50 dark:bg-gray-900">
+  return <section ref={sectionRef} className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center dark:text-white">Revolutionizing the Interview Process</h2>
         
@@ -113,12 +106,12 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-green-500 text-white">
               <div className="flex justify-end mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-16">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
-              <h3 className="font-bold mb-2 text-slate-50 text-4xl">World's Most Advanced</h3>
-              <p className="text-xl text-slate-50">Interview Platform</p>
+              <h3 className="font-bold mb-2 text-slate-50 text-5xl">World's Most Advanced</h3>
+              <p className="text-slate-50 text-2xl">Interview Platform</p>
             </FeatureCard>
           </div>
 
@@ -129,24 +122,12 @@ const FeatureCards = () => {
               <div className="w-full overflow-hidden">
                 <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
-                  {!videoLoaded && (
-                    <div className="w-full h-full bg-gray-100 dark:bg-gray-700">
-                      <img 
-                        alt="Candidate" 
-                        className="w-full h-full object-cover" 
-                        src="/lovable-uploads/dc116a51-10c1-403e-b3f7-bcf3f9500fc9.png" 
-                      />
-                    </div>
-                  )}
-                  <video 
-                    className="w-full h-full object-cover" 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    onLoadedData={() => setVideoLoaded(true)}
-                    style={{ display: videoLoaded ? 'block' : 'none' }}
-                  >
+                  {!videoLoaded && <div className="w-full h-full bg-gray-100 dark:bg-gray-700">
+                      <img alt="Candidate" src="/lovable-uploads/2a2633aa-807f-4351-a2de-690812bbbf98.png" className="aspect-[4/3] bg-white rounded-lg  object-cover" />
+                    </div>}
+                  <video className="w-full h-full object-cover" autoPlay loop muted playsInline onLoadedData={() => setVideoLoaded(true)} style={{
+                  display: videoLoaded ? 'block' : 'none'
+                }}>
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-typing-on-a-laptop-in-a-cafe-479-small.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -174,7 +155,7 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-100 dark:bg-gray-800">
               <div className="flex items-center justify-center h-full">
-                <h3 className="text-2xl font-medium text-gray-800 dark:text-gray-200">Self Served</h3>
+                <h3 className="font-medium text-gray-800 dark:text-gray-200 text-4xl">Self Served</h3>
               </div>
             </FeatureCard>
           </div>
@@ -182,11 +163,11 @@ const FeatureCards = () => {
           {/* 10x */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-orange-100 dark:bg-orange-900/30">
-              <h3 className="text-6xl font-bold text-orange-500 dark:text-orange-400 mb-6">10x</h3>
+              <h3 className="font-bold text-orange-500 dark:text-orange-400 mb-6 text-8xl">10x</h3>
               <div className="space-y-2">
-                <p className="text-orange-700 dark:text-orange-300">Cost effective</p>
-                <p className="text-orange-700 dark:text-orange-300">Smarter</p>
-                <p className="text-orange-700 dark:text-orange-300">Faster</p>
+                <p className="text-orange-700 dark:text-orange-300 text-4xl">Cost effective</p>
+                <p className="text-orange-700 dark:text-orange-300 text-3xl">Smarter</p>
+                <p className="text-orange-700 dark:text-orange-300 text-2xl">Faster</p>
               </div>
             </FeatureCard>
           </div>
@@ -203,7 +184,7 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-50 dark:bg-gray-800/50">
               <div className="h-full flex items-center justify-center">
-                <p className="text-gray-400 dark:text-gray-500 text-center">Custom Interview Templates</p>
+                <p className="text-gray-400 dark:text-gray-500 text-center text-2xl">Biased</p>
               </div>
             </FeatureCard>
           </div>
@@ -225,7 +206,7 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-blue-100 dark:bg-blue-900/30">
               <div className="h-full flex flex-col items-center justify-center">
-                <h3 className="text-2xl font-medium text-blue-600 dark:text-blue-400 text-center">Detailed Interview Summary</h3>
+                <h3 className="font-medium text-blue-600 dark:text-blue-400 text-left text-3xl">Detailed Interview Summary</h3>
               </div>
             </FeatureCard>
           </div>
@@ -242,8 +223,6 @@ const FeatureCards = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FeatureCards;
