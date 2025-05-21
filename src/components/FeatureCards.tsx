@@ -26,7 +26,7 @@ const PerformanceIndicator = ({
     orange: 'bg-orange-500',
     red: 'bg-red-500'
   };
-  return <div className="flex items-center gap-2 mb-2">
+  return <div className="flex items-center gap-8 mb-2">
       <span className="text-gray-700 dark:text-gray-300 font-medium text-xs">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
     </div>;
@@ -123,7 +123,7 @@ const FeatureCards = () => {
                 <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
                   {!videoLoaded && <div className="w-full h-full bg-gray-100 dark:bg-gray-700">
-                      <img alt="Candidate" src="/lovable-uploads/2a2633aa-807f-4351-a2de-690812bbbf98.png" className="aspect-[4/3] bg-white rounded-lg  object-cover" />
+                      <img alt="Candidate" src="/lovable-uploads/2a2633aa-807f-4351-a2de-690812bbbf98.png" className="w-full h-full bg-white rounded-lg  object-cover" />
                     </div>}
                   <video className="w-full h-full object-cover" autoPlay loop muted playsInline onLoadedData={() => setVideoLoaded(true)} style={{
                   display: videoLoaded ? 'block' : 'none'
@@ -163,11 +163,11 @@ const FeatureCards = () => {
           {/* 10x */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-orange-100 dark:bg-orange-900/30">
-              <h3 className="font-bold text-orange-500 dark:text-orange-400 mb-6 text-8xl">10x</h3>
+              <h3 className="font-bold mb-6 text-8xl text-orange-400">10x</h3>
               <div className="space-y-2">
-                <p className="text-orange-700 dark:text-orange-300 text-4xl">Cost effective</p>
-                <p className="text-orange-700 dark:text-orange-300 text-3xl">Smarter</p>
-                <p className="text-orange-700 dark:text-orange-300 text-2xl">Faster</p>
+                <p className="text-4xl text-orange-300">Cost effective</p>
+                <p className="text-3xl text-orange-300">Smarter</p>
+                <p className="text-2xl text-orange-300">Faster</p>
               </div>
             </FeatureCard>
           </div>
@@ -175,8 +175,8 @@ const FeatureCards = () => {
           {/* 80% reduction */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-green-100 dark:bg-green-900/30">
-              <h3 className="font-bold text-green-700 dark:text-green-400 mb-4 text-8xl">80<span className="text-4xl">%</span></h3>
-              <p className="text-green-700 dark:text-green-400">reduction in time<br />to hire</p>
+              <h3 className="font-bold mb-4 text-8xl text-green-500">80<span className="text-4xl">%</span></h3>
+              <p className="text-green-700 dark:text-green-400 text-xl">reduction in time<br />to hire</p>
             </FeatureCard>
           </div>
 
@@ -206,7 +206,7 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-blue-100 dark:bg-blue-900/30">
               <div className="h-full flex flex-col items-center justify-center">
-                <h3 className="font-medium text-blue-600 dark:text-blue-400 text-left text-3xl">Detailed Interview Summary</h3>
+                <h3 className="font-medium text-left text-3xl text-blue-400">Detailed Interview Summary</h3>
               </div>
             </FeatureCard>
           </div>
@@ -214,7 +214,7 @@ const FeatureCards = () => {
           {/* Biased */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow md:col-span-2">
             <FeatureCard color="bg-orange-400 dark:bg-orange-700 text-white">
-              <div className="h-full flex items-center justify-center">
+              <div className="h-full flex items-center justify-center px-0 mx-0 py-0 my-0">
                 <h3 className="text-2xl font-medium inline-flex items-center">
                   <span className="border-t border-white mx-6">Biased</span>
                 </h3>
