@@ -13,6 +13,7 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Features from '@/components/Features';
 import PricingSection from '@/components/PricingSection';
+import FeatureCards from '@/components/FeatureCards';
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
             <HowItWorks />
           </section>
           <Differentiators />
+          <FeatureCards />
           <Features />
           <UseCases />
           <section id="testimonials" className="scroll-mt-24">

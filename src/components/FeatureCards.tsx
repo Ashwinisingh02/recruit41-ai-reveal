@@ -1,70 +1,75 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 interface FeatureCardProps {
   color: string;
   children: React.ReactNode;
   className?: string;
 }
-const FeatureCard = ({
-  color,
-  children,
-  className = ""
-}: FeatureCardProps) => {
-  return <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
+
+const FeatureCard = ({ color, children, className = "" }: FeatureCardProps) => {
+  return (
+    <div className={`rounded-xl p-6 h-full ${color} ${className} transform transition-all duration-500`}>
       {children}
-    </div>;
+    </div>
+  );
 };
-const PerformanceIndicator = ({
-  skill,
-  level
-}: {
-  skill: string;
-  level: 'green' | 'orange' | 'red';
-}) => {
+
+const PerformanceIndicator = ({ skill, level }: { skill: string; level: 'green' | 'orange' | 'red' }) => {
   const colorMap = {
     green: 'bg-green-500',
     orange: 'bg-orange-500',
     red: 'bg-red-500'
   };
-  return <div className="flex items-center gap-2 mb-2">
-      <span className="text-gray-700 font-medium text-xs">{skill}</span>
+
+  return (
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-gray-700 dark:text-gray-300 font-medium text-xs">{skill}</span>
       <div className={`w-2 h-2 rounded-full ${colorMap[level]}`}></div>
-    </div>;
+    </div>
+  );
 };
-const CandidateRow = ({
-  name,
-  score
-}: {
-  name: string;
-  score: string | number;
-}) => {
+
+const CandidateRow = ({ name, score }: { name: string; score: string | number }) => {
   // Determine color based on score
-  let scoreColor = "bg-green-100 text-green-800";
+  let scoreColor = "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100";
+  
   if (typeof score === 'number' || !isNaN(Number(score))) {
     const numScore = Number(score);
-    if (numScore < 2.0) scoreColor = "bg-red-100 text-red-800";else if (numScore < 3.5) scoreColor = "bg-orange-100 text-orange-800";
+    if (numScore < 2.0) {
+      scoreColor = "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100";
+    } else if (numScore < 3.5) {
+      scoreColor = "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100";
+    }
   }
-  return <div className="flex items-center justify-between mb-3">
+
+  return (
+    <div className="flex items-center justify-between mb-3">
       <div className="flex items-center">
-        <div className="w-8 h-8 rounded-full bg-gray-200 mr-2"></div>
-        <span className="text-sm">{name}</span>
+        <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 mr-2"></div>
+        <span className="text-sm dark:text-gray-200">{name}</span>
       </div>
       <div className={`px-2 py-1 rounded-full text-xs font-medium ${scoreColor}`}>
         {score}
       </div>
-    </div>;
+    </div>
+  );
 };
+
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cards = useRef<HTMLDivElement[]>([]);
   // Add a state to track if the video has loaded
   const [videoLoaded, setVideoLoaded] = useState(false);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -78,24 +83,31 @@ const FeatureCards = () => {
         }
       });
     };
+
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
+
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !cards.current.includes(el)) {
       cards.current.push(el);
     }
   };
-  return <section ref={sectionRef} className="py-16 bg-gray-50">
+
+  return (
+    <section ref={sectionRef} className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container-wide">
-        <h2 className="text-3xl font-medium mb-12 text-center">Revolutionizing the Interview Process</h2>
+        <h2 className="text-3xl font-medium mb-12 text-center dark:text-white">Revolutionizing the Interview Process</h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* World's Most Advanced Interview Platform */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
@@ -110,31 +122,40 @@ const FeatureCards = () => {
             </FeatureCard>
           </div>
 
-          {/* Performance - Updated to match the provided image */}
+          {/* Performance Card */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-white shadow-sm border border-gray-100" className="p-0 overflow-hidden">
-              {/* Candidate Video in a rounded container at the top */}
+            <FeatureCard color="bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700" className="p-0 overflow-hidden">
+              {/* Candidate Video/Image in a rounded container at the top */}
               <div className="w-full overflow-hidden">
                 <AspectRatio ratio={1}>
                   {/* We're using a fallback image if video doesn't load */}
-                  {!videoLoaded && <div className="w-full h-full">
-                      <img alt="Candidate" className="w-full h-full object-cover rounded-2xl " src="/lovable-uploads/3b2e29e4-830c-428e-8601-0e8166b741ac.png" />
-                    </div>}
-                  <video className="w-full h-full object-cover" autoPlay loop muted playsInline onLoadedData={() => setVideoLoaded(true)} style={{
-                  display: videoLoaded ? 'block' : 'none'
-                }}>
-                    {/* First source is using a direct URL to a sample video */}
+                  {!videoLoaded && (
+                    <div className="w-full h-full bg-gray-100 dark:bg-gray-700">
+                      <img 
+                        alt="Candidate" 
+                        className="w-full h-full object-cover" 
+                        src="/lovable-uploads/dc116a51-10c1-403e-b3f7-bcf3f9500fc9.png" 
+                      />
+                    </div>
+                  )}
+                  <video 
+                    className="w-full h-full object-cover" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    onLoadedData={() => setVideoLoaded(true)}
+                    style={{ display: videoLoaded ? 'block' : 'none' }}
+                  >
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-typing-on-a-laptop-in-a-cafe-479-small.mp4" type="video/mp4" />
-                    {/* Fallback to the uploaded video if it exists */}
-                    <source src="/lovable-uploads/candidate-interview.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </AspectRatio>
               </div>
 
               {/* Performance title and skills below the video */}
-              <div className="p-5 px-[6px] py-0 my-0">
-                <h3 className="text-xl font-medium mb-4 text-gray-800 text-left px-0 py-[11px]">Performance</h3>
+              <div className="p-5">
+                <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-gray-200">Performance</h3>
                 
                 {/* Skills arranged in two columns as shown in the image */}
                 <div className="grid grid-cols-2 gap-x-4">
@@ -151,46 +172,46 @@ const FeatureCards = () => {
 
           {/* Self Served */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-gray-100">
-              <div className="flex items-center justify-center h-full bg-slate-100">
-                <h3 className="text-2xl font-medium text-gray-800">Self Served</h3>
+            <FeatureCard color="bg-gray-100 dark:bg-gray-800">
+              <div className="flex items-center justify-center h-full">
+                <h3 className="text-2xl font-medium text-gray-800 dark:text-gray-200">Self Served</h3>
               </div>
             </FeatureCard>
           </div>
 
           {/* 10x */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-orange-100">
-              <h3 className="text-6xl font-bold text-orange-500 mb-6">10x</h3>
+            <FeatureCard color="bg-orange-100 dark:bg-orange-900/30">
+              <h3 className="text-6xl font-bold text-orange-500 dark:text-orange-400 mb-6">10x</h3>
               <div className="space-y-2">
-                <p className="text-orange-700">Cost effective</p>
-                <p className="text-orange-700">Smarter</p>
-                <p className="text-orange-700">Faster</p>
+                <p className="text-orange-700 dark:text-orange-300">Cost effective</p>
+                <p className="text-orange-700 dark:text-orange-300">Smarter</p>
+                <p className="text-orange-700 dark:text-orange-300">Faster</p>
               </div>
             </FeatureCard>
           </div>
 
           {/* 80% reduction */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-green-100">
-              <h3 className="font-bold text-green-700 mb-4 text-8xl">80<span className="text-4xl">%</span></h3>
-              <p className="text-green-700">reduction in time<br />to hire</p>
+            <FeatureCard color="bg-green-100 dark:bg-green-900/30">
+              <h3 className="font-bold text-green-700 dark:text-green-400 mb-4 text-8xl">80<span className="text-4xl">%</span></h3>
+              <p className="text-green-700 dark:text-green-400">reduction in time<br />to hire</p>
             </FeatureCard>
           </div>
 
           {/* Empty space or additional content */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-gray-50">
+            <FeatureCard color="bg-gray-50 dark:bg-gray-800/50">
               <div className="h-full flex items-center justify-center">
-                <p className="text-gray-400 text-center">Custom Interview Templates</p>
+                <p className="text-gray-400 dark:text-gray-500 text-center">Custom Interview Templates</p>
               </div>
             </FeatureCard>
           </div>
 
           {/* Candidate Shortlisting */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-gray-100">
-              <h3 className="text-xl font-medium mb-6 text-gray-800">Candidate Shortlisting</h3>
+            <FeatureCard color="bg-gray-100 dark:bg-gray-800">
+              <h3 className="text-xl font-medium mb-6 text-gray-800 dark:text-gray-200">Candidate Shortlisting</h3>
               <div className="space-y-1">
                 <CandidateRow name="Ashwini Singh" score="4.9" />
                 <CandidateRow name="Abhishek Kumar" score="2.4" />
@@ -202,16 +223,16 @@ const FeatureCards = () => {
 
           {/* Detailed Interview Summary */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
-            <FeatureCard color="bg-blue-100">
+            <FeatureCard color="bg-blue-100 dark:bg-blue-900/30">
               <div className="h-full flex flex-col items-center justify-center">
-                <h3 className="text-2xl font-medium text-blue-600 text-center">Detailed Interview Summary</h3>
+                <h3 className="text-2xl font-medium text-blue-600 dark:text-blue-400 text-center">Detailed Interview Summary</h3>
               </div>
             </FeatureCard>
           </div>
           
           {/* Biased */}
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow md:col-span-2">
-            <FeatureCard color="bg-orange-400 text-white">
+            <FeatureCard color="bg-orange-400 dark:bg-orange-700 text-white">
               <div className="h-full flex items-center justify-center">
                 <h3 className="text-2xl font-medium inline-flex items-center">
                   <span className="border-t border-white mx-6">Biased</span>
@@ -221,6 +242,8 @@ const FeatureCards = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FeatureCards;
