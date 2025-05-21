@@ -103,13 +103,13 @@ const Features = () => {
               <div className="space-y-4">
                 <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
                   <div className="flex justify-between items-center">
-                    <span className="font-medium text-sm">10:00 AM - 11:00 AM</span>
+                    <span className="font-medium text-sm text-slate-950">10:00 AM - 11:00 AM</span>
                     <span className="text-xs text-blue-500">Available</span>
                   </div>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
                   <div className="flex justify-between items-center">
-                    <span className="font-medium text-sm">1:30 PM - 2:30 PM</span>
+                    <span className="font-medium text-sm text-gray-950">1:30 PM - 2:30 PM</span>
                     <span className="text-xs text-blue-500">Available</span>
                   </div>
                 </div>
