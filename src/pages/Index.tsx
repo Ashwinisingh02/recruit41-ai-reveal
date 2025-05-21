@@ -11,6 +11,8 @@ import Security from '@/components/Security';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import Features from '@/components/Features';
+import PricingSection from '@/components/PricingSection';
 
 const Index = () => {
   return (
@@ -23,10 +25,12 @@ const Index = () => {
             <HowItWorks />
           </section>
           <Differentiators />
+          <Features />
           <UseCases />
           <section id="testimonials" className="scroll-mt-24">
             <Testimonials />
           </section>
+          <PricingSection />
           <Founders />
           <Security />
           <CallToAction />

@@ -1,7 +1,9 @@
+
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 const Features = () => {
   // Create refs for each section to observe
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -10,12 +12,14 @@ const Features = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.2
     };
+
     const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -26,6 +30,7 @@ const Features = () => {
         }
       });
     };
+
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
     // Observe all section refs
@@ -33,12 +38,14 @@ const Features = () => {
     elements.forEach(el => {
       if (el) observer.observe(el);
     });
+
     return () => {
       elements.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
+
   return <section className="section-padding bg-white">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
@@ -236,13 +243,98 @@ const Features = () => {
         
         {/* 10x Feature Cards */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 translate-y-10 transition-all duration-700 delay-300">
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-orange-100 text-orange-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Customizable Templates</h3>
+              <p className="text-recruit-gray mb-4">Create interview templates for any role with custom scoring criteria tailored to your needs.</p>
+              <a href="#" className="text-orange-500 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
           
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Detailed Reports</h3>
+              <p className="text-recruit-gray mb-4">Get comprehensive insights with AI-powered performance analytics after each interview.</p>
+              <a href="#" className="text-blue-500 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
           
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-green-100 text-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Time Savings</h3>
+              <p className="text-recruit-gray mb-4">Reduce interview prep and evaluation time by up to 75% with intelligent automation.</p>
+              <a href="#" className="text-green-500 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
           
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-purple-100 text-purple-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Bias Reduction</h3>
+              <p className="text-recruit-gray mb-4">Our algorithms are designed to minimize unconscious bias in the hiring process.</p>
+              <a href="#" className="text-purple-500 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
           
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-red-100 text-red-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Team Collaboration</h3>
+              <p className="text-recruit-gray mb-4">Share interview insights with your team and make collaborative hiring decisions.</p>
+              <a href="#" className="text-red-500 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
           
+          <Card className="hover-lift hover-glow">
+            <CardContent className="p-6">
+              <div className="bg-yellow-100 text-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Enterprise Security</h3>
+              <p className="text-recruit-gray mb-4">SOC2 and ISO 27001 compliant with end-to-end encryption for all your data.</p>
+              <a href="#" className="text-yellow-600 font-medium hover:underline flex items-center">
+                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>;
 };
+
 export default Features;
