@@ -50,7 +50,7 @@ const CandidateRow = ({
   }
   return <div className="flex items-center justify-between mb-3">
       <div className="flex items-center">
-        <div className="w-8 h-8 rounded-full mr-2 bg-orange-50"></div>
+        
         <span className="text-sm dark:text-gray-200">{name}</span>
       </div>
       <div className={`px-2 py-1 rounded-full text-xs font-medium ${scoreColor}`}>
