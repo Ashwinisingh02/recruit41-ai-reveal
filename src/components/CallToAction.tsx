@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 const CallToAction = () => {
-  return <section className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 dark:from-gray-800 dark:to-gray-900">
+  return <section className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 dark:from-gray-800 dark:to-gray-900 bg-orange-500">
       <div className="container-wide">
         <div className="max-w-3xl mx-auto text-center text-white">
           <h2 className="text-3xl font-bold mb-6 text-orange-50 md:text-4xl">Let's Rethink Hiring Together</h2>
