@@ -1,9 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const Features = () => {
   // Create refs for each section to observe
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -12,14 +10,12 @@ const Features = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.2
     };
-
     const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -30,7 +26,6 @@ const Features = () => {
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
     // Observe all section refs
@@ -38,15 +33,13 @@ const Features = () => {
     elements.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elements.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
-  return <section className="section-padding bg-white">
+  return <section className="section-padding bg-recruit-dark">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
         <div ref={step1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700">
@@ -63,7 +56,7 @@ const Features = () => {
             </a>
           </div>
           <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 shadow-sm">
-            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
+            <div className="aspect-[4/3] rounded-lg shadow-sm p-6 bg-slate-800">
               <div className="mb-6">
                 <h3 className="text-xl font-medium mb-2">Frontend Developer Interview</h3>
                 <div className="flex items-center text-sm text-gray-500">
@@ -73,19 +66,19 @@ const Features = () => {
               </div>
               
               <div className="space-y-4">
-                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                <div className="p-3 rounded-md border border-gray-100 bg-orange-500">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">JavaScript Fundamentals</span>
-                    <span className="text-xs text-gray-500">15 min</span>
+                    <span className="text-xs text-gray-50">15 min</span>
                   </div>
                 </div>
-                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                <div className="p-3 rounded-md border border-gray-100 bg-zinc-950">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">React Components</span>
                     <span className="text-xs text-gray-500">20 min</span>
                   </div>
                 </div>
-                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                <div className="p-3 rounded-md border border-gray-100 bg-zinc-950">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">API Integration</span>
                     <span className="text-xs text-gray-500">15 min</span>
@@ -99,7 +92,7 @@ const Features = () => {
         {/* Step 2 - Invite Candidates & Schedule */}
         <div ref={step2Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-75">
           <div className="order-2 md:order-1 bg-green-50 p-8 rounded-2xl border border-green-100 shadow-sm">
-            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
+            <div className="aspect-[4/3] rounded-lg shadow-sm p-6 bg-slate-900">
               <div className="mb-6">
                 <h3 className="text-xl font-medium mb-2">Candidate Scheduling</h3>
                 <div className="flex items-center text-sm text-gray-500">
@@ -108,19 +101,19 @@ const Features = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                <div className="p-3 rounded-md border border-gray-100 bg-zinc-950">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">10:00 AM - 11:00 AM</span>
                     <span className="text-xs text-blue-500">Available</span>
                   </div>
                 </div>
-                <div className="p-3 bg-gray-50 rounded-md border border-gray-100">
+                <div className="p-3 rounded-md border border-gray-100 bg-zinc-950">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">1:30 PM - 2:30 PM</span>
                     <span className="text-xs text-blue-500">Available</span>
                   </div>
                 </div>
-                <div className="p-3 bg-orange-50 rounded-md border border-orange-100">
+                <div className="p-3 rounded-md border border-orange-100 bg-zinc-950">
                   <div className="flex justify-between items-center">
                     <span className="font-medium text-sm">4:00 PM - 5:00 PM</span>
                     <span className="text-xs text-orange-500">Booked</span>
@@ -336,5 +329,4 @@ const Features = () => {
       </div>
     </section>;
 };
-
 export default Features;
