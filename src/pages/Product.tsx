@@ -72,8 +72,8 @@ const Product = () => {
           <section id="how-it-works" className="section-padding bg-recruit-lightgray dark:bg-gray-800">
             <div className="container-wide">
               <div className="text-center mb-16">
-                <h2 className="mb-6">How It Works</h2>
-                <p className="max-w-2xl mx-auto dark:text-gray-300">
+                <h2 className="mb-6 dark:text-white">How It Works</h2>
+                <p className="max-w-2xl mx-auto text-recruit-gray dark:text-gray-300">
                   Our streamlined process makes technical hiring efficient and effective,
                   giving you confidence in your hiring decisions.
                 </p>
@@ -82,10 +82,10 @@ const Product = () => {
               {/* Step 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 animate-fade-in">
                 <div>
-                  <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4 dark:bg-orange-900/20">
+                  <div className="inline-block bg-orange-100 dark:bg-orange-900/20 text-orange-500 dark:text-orange-400 p-2 rounded-full mb-4">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">1</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-medium mb-6">Create & Customize Your Interview</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-6 dark:text-white">Create & Customize Your Interview</h3>
                   <p className="text-lg text-recruit-gray dark:text-gray-300 mb-8 leading-relaxed">
                     Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.
                   </p>
@@ -151,10 +151,10 @@ const Product = () => {
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
-                  <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4 dark:bg-orange-900/20">
+                  <div className="inline-block bg-orange-100 dark:bg-orange-900/20 text-orange-500 dark:text-orange-400 p-2 rounded-full mb-4">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">2</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-medium mb-6">Invite Candidates & Schedule</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-6 dark:text-white">Invite Candidates & Schedule</h3>
                   <p className="text-lg text-recruit-gray dark:text-gray-300 mb-8 leading-relaxed">
                     Seamlessly invite candidates to your custom technical assessments. Our scheduling system integrates with your calendar and sends automated reminders to ensure candidates are prepared and on time.
                   </p>
@@ -164,10 +164,10 @@ const Product = () => {
               {/* Step 3 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center animate-fade-in">
                 <div>
-                  <div className="inline-block bg-orange-100 text-orange-500 p-2 rounded-full mb-4 dark:bg-orange-900/20">
+                  <div className="inline-block bg-orange-100 dark:bg-orange-900/20 text-orange-500 dark:text-orange-400 p-2 rounded-full mb-4">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white font-bold">3</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-medium mb-6">Review AI-Powered Insights</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-6 dark:text-white">Review AI-Powered Insights</h3>
                   <p className="text-lg text-recruit-gray dark:text-gray-300 mb-8 leading-relaxed">
                     Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.
                   </p>
