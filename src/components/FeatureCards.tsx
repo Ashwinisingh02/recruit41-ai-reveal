@@ -184,7 +184,7 @@ const FeatureCards = () => {
           <div ref={addToRefs} className="opacity-0 translate-y-10 transition-all duration-700 hover-lift hover-glow">
             <FeatureCard color="bg-gray-50 dark:bg-gray-800/50">
               <div className="h-full flex items-center justify-center">
-                <p className="text-gray-400 dark:text-gray-500 text-center text-2xl">Biased</p>
+                <p className="text-gray-400 dark:text-gray-500 text-center text-2xl">Unbiased</p>
               </div>
             </FeatureCard>
           </div>
