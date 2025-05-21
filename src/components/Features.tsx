@@ -1,9 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const Features = () => {
   // Create refs for each section to observe
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -12,14 +10,12 @@ const Features = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.2
     };
-
     const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -30,7 +26,6 @@ const Features = () => {
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
     // Observe all section refs
@@ -38,15 +33,13 @@ const Features = () => {
     elements.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elements.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
-  return <section className="section-padding bg-white">
+  return <section className="section-padding bg-slate-900">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
         <div ref={step1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700">
@@ -336,5 +329,4 @@ const Features = () => {
       </div>
     </section>;
 };
-
 export default Features;
