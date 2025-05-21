@@ -61,8 +61,8 @@ const PricingSection = () => {
     <section id="pricing" className="section-padding bg-recruit-lightgray dark:bg-gray-900">
       <div className="container-wide">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light mb-6 dark:text-white">Simple, Transparent Pricing</h2>
-          <p className="text-xl text-recruit-gray mb-8 max-w-2xl mx-auto dark:text-gray-300">
+          <h2 className="text-3xl md:text-4xl font-light mb-6">Simple, Transparent Pricing</h2>
+          <p className="text-xl text-recruit-gray dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Choose the plan that's right for your recruitment needs
           </p>
           <div className="inline-flex items-center bg-white dark:bg-gray-800 rounded-full p-1 border border-gray-200 dark:border-gray-700 shadow-sm">
@@ -70,7 +70,7 @@ const PricingSection = () => {
               onClick={() => setBillingPeriod('monthly')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 billingPeriod === 'monthly' 
-                  ? 'bg-recruit-blue text-white' 
+                  ? 'bg-recruit-blue text-white dark:bg-blue-600' 
                   : 'text-recruit-gray dark:text-gray-300'
               }`}
             >
@@ -80,7 +80,7 @@ const PricingSection = () => {
               onClick={() => setBillingPeriod('annually')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 billingPeriod === 'annually' 
-                  ? 'bg-recruit-blue text-white' 
+                  ? 'bg-recruit-blue text-white dark:bg-blue-600' 
                   : 'text-recruit-gray dark:text-gray-300'
               }`}
             >
@@ -100,9 +100,9 @@ const PricingSection = () => {
               }`}
             >
               <CardContent className="p-8">
-                <h3 className="text-xl font-medium mb-2 dark:text-white">{tier.name}</h3>
+                <h3 className="text-xl font-medium mb-2">{tier.name}</h3>
                 <div className="mb-4 flex items-end">
-                  <span className="text-4xl font-light dark:text-white">{tier.price}</span>
+                  <span className="text-4xl font-light">{tier.price}</span>
                   {tier.period && <span className="text-recruit-gray dark:text-gray-400 ml-1">{tier.period}</span>}
                 </div>
                 <p className="text-recruit-gray dark:text-gray-400 mb-6">{tier.description}</p>
