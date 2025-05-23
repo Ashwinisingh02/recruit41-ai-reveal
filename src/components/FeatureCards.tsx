@@ -97,7 +97,7 @@ const FeatureCards = () => {
       cards.current.push(el);
     }
   };
-  return <section ref={sectionRef} className="py-16 bg-slate-900">
+  return <section ref={sectionRef} className="py-16 bg-slate-50">
       <div className="container-wide">
         <h2 className="text-3xl font-medium mb-12 text-center dark:text-white">Revolutionizing the Interview Process</h2>
         

@@ -39,7 +39,7 @@ const Features = () => {
       });
     };
   }, []);
-  return <section className="section-padding bg-slate-950">
+  return <section className="section-padding bg-slate-50">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
         <div ref={step1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700">
