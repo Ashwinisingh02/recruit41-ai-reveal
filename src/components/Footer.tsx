@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
 const Footer = () => {
-  return <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="text-white pt-16 pb-8 bg-gray-950">
       <div className="container-wide">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-1">
