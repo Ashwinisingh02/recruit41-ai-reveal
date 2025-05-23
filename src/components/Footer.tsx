@@ -1,21 +1,14 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container-wide">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-4">
-              <img 
-                src="/lovable-uploads/54cf43bf-2915-4155-8520-540b930fb013.png" 
-                alt="Recruit41 Logo" 
-                className="h-10 w-auto"
-              />
+              <img src="/lovable-uploads/54cf43bf-2915-4155-8520-540b930fb013.png" alt="Recruit41 Logo" className="h-20 w-auto object-contain" />
             </Link>
             <p className="text-sm text-gray-400 mb-6">
               Revolutionizing the hiring process with AI-powered interviews. 
@@ -69,16 +62,9 @@ const Footer = () => {
             <form className="space-y-2">
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="w-full bg-white/10 border border-white/20 rounded-lg py-2 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
-                />
+                <input type="email" placeholder="Your email address" className="w-full bg-white/10 border border-white/20 rounded-lg py-2 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50" />
               </div>
-              <Button 
-                type="submit" 
-                className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg text-sm w-full"
-              >
+              <Button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg text-sm w-full">
                 Subscribe
               </Button>
             </form>
@@ -91,8 +77,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

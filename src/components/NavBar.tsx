@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
-
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +11,6 @@ const NavBar = () => {
     theme,
     toggleTheme
   } = useTheme();
-
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -28,24 +25,17 @@ const NavBar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
   useEffect(() => {
     setCurrentPath(window.location.pathname);
   }, []);
-
   const getHowItWorksLink = () => {
     return currentPath === '/' ? '/#how-it-works' : '/product#how-it-works';
   };
-
   return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between py-4">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/54cf43bf-2915-4155-8520-540b930fb013.png" 
-              alt="Recruit41 Logo" 
-              className="h-10 w-auto"
-            />
+            <img src="/lovable-uploads/54cf43bf-2915-4155-8520-540b930fb013.png" alt="Recruit41 Logo" className="h-12 w-auto" />
           </Link>
         </div>
 
@@ -125,5 +115,4 @@ const NavBar = () => {
       </div>
     </header>;
 };
-
 export default NavBar;
