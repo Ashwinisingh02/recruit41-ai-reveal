@@ -10,8 +10,12 @@ const Footer = () => {
       <div className="container-wide">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-1">
-            <Link to="/" className="text-2xl font-medium text-white inline-block mb-4">
-              Recruit<span className="text-orange-500">41</span>
+            <Link to="/" className="inline-block mb-4">
+              <img 
+                src="/lovable-uploads/54cf43bf-2915-4155-8520-540b930fb013.png" 
+                alt="Recruit41 Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-gray-400 mb-6">
               Revolutionizing the hiring process with AI-powered interviews. 
