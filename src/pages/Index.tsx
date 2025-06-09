@@ -14,17 +14,21 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import Features from '@/components/Features';
 import PricingSection from '@/components/PricingSection';
 import FeatureCards from '@/components/FeatureCards';
+import StatsSection from '@/components/StatsSection';
+import ProcessSection from '@/components/ProcessSection';
 
 const Index = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background overflow-x-hidden">
         <NavBar />
         <main>
           <Hero />
+          <StatsSection />
           <section id="how-it-works" className="scroll-mt-24">
             <HowItWorks />
           </section>
+          <ProcessSection />
           <Differentiators />
           <FeatureCards />
           <Features />
