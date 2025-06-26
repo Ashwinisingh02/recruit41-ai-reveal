@@ -64,11 +64,7 @@ const Hero = () => {
             <div className="relative w-full max-w-lg mx-auto">
               {/* Floating Elements */}
               
-              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-2xl animate-bounce" style={{
-              animationDelay: '0.5s'
-            }}>
-                <span className="text-white font-bold text-xs">ML</span>
-              </div>
+              
               
 
               <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
