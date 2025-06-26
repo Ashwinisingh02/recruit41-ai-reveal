@@ -1,22 +1,19 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+  return <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-purple-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-purple-600/10 rounded-full blur-3xl animate-pulse" style={{
+        animationDelay: '1s'
+      }}></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       </div>
 
@@ -41,18 +38,11 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white border-0 text-lg px-8 py-6 rounded-xl hover-lift shadow-lg hover:shadow-orange-500/25"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white border-0 text-lg px-8 py-6 rounded-xl hover-lift shadow-lg hover:shadow-orange-500/25">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-2 border-gray-600 bg-transparent hover:bg-white/5 text-white text-lg px-8 py-6 rounded-xl hover-lift"
-              >
+              <Button variant="outline" size="lg" className="border-2 border-gray-600 bg-transparent hover:bg-white/5 text-white text-lg px-8 py-6 rounded-xl hover-lift">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </Button>
@@ -73,23 +63,23 @@ const Hero = () => {
           <div className={`lg:relative lg:h-full flex items-center justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative w-full max-w-lg mx-auto">
               {/* Floating Elements */}
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl animate-bounce">
-                <span className="text-white font-bold text-sm">AI</span>
-              </div>
-              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-2xl animate-bounce" style={{ animationDelay: '0.5s' }}>
+              
+              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-2xl animate-bounce" style={{
+              animationDelay: '0.5s'
+            }}>
                 <span className="text-white font-bold text-xs">ML</span>
               </div>
-              <div className="absolute -bottom-4 -left-2 w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center shadow-2xl animate-bounce" style={{ animationDelay: '1s' }}>
+              <div className="absolute -bottom-4 -left-2 w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center shadow-2xl animate-bounce" style={{
+              animationDelay: '1s'
+            }}>
                 <span className="text-white font-bold text-xs">NLP</span>
               </div>
 
               <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
                 <div className="flex justify-center items-center gap-4 mb-8">
-                  {['Resume AI', 'Interview AI', 'Evaluation AI'].map((tech, index) => (
-                    <div key={index} className="px-3 py-2 bg-white/20 rounded-lg">
+                  {['Resume AI', 'Interview AI', 'Evaluation AI'].map((tech, index) => <div key={index} className="px-3 py-2 bg-white/20 rounded-lg">
                       <span className="text-xs text-white font-medium">{tech}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 
                 <div className="rounded-2xl overflow-hidden border border-white/10 mb-8">
@@ -130,8 +120,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
