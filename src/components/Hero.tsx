@@ -69,11 +69,7 @@ const Hero = () => {
             }}>
                 <span className="text-white font-bold text-xs">ML</span>
               </div>
-              <div className="absolute -bottom-4 -left-2 w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center shadow-2xl animate-bounce" style={{
-              animationDelay: '1s'
-            }}>
-                <span className="text-white font-bold text-xs">NLP</span>
-              </div>
+              
 
               <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
                 <div className="flex justify-center items-center gap-4 mb-8">
