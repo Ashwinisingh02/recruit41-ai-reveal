@@ -7,11 +7,11 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+  return <section className="relative min-h-screen flex items-center overflow-hidden hero-bg dark-mode-transition">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-purple-600/10 rounded-full blur-3xl animate-pulse" style={{
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl animate-pulse glow-blob-accent"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl animate-pulse glow-blob-primary" style={{
         animationDelay: '1s'
       }}></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>

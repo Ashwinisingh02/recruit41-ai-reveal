@@ -31,7 +31,7 @@ const NavBar = () => {
   const getHowItWorksLink = () => {
     return currentPath === '/' ? '/#how-it-works' : '/product#how-it-works';
   };
-  return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+  return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between py-4">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
