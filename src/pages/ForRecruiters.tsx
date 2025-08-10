@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 
 const ForRecruiters = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <NavBar />
       <main>
         {/* Recruiters Hero */}
-        <section className="pt-32 pb-24 relative overflow-hidden bg-recruit-lightgray">
+        <section className="pt-32 pb-24 relative overflow-hidden bg-recruit-lightgray dark:bg-gray-900">
           <div className="container-wide">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="mb-6">Built For Modern Recruiters</h1>

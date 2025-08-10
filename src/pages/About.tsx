@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <NavBar />
       <main>
         {/* About Hero */}
-        <section className="pt-32 pb-24 relative overflow-hidden bg-recruit-lightgray">
+        <section className="pt-32 pb-24 relative overflow-hidden bg-recruit-lightgray dark:bg-gray-900">
           <div className="container-wide">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="mb-6">About Recruit41</h1>

@@ -39,7 +39,7 @@ const Features = () => {
       });
     };
   }, []);
-  return <section className="section-padding bg-slate-50">
+  return <section className="section-padding bg-background">
       <div className="container-wide">
         {/* First feature - Create & Customize Interview */}
         <div ref={step1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700">
@@ -56,7 +56,7 @@ const Features = () => {
             </a>
           </div>
           <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 shadow-sm">
-            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
+            <div className="aspect-[4/3] bg-card dark:bg-gray-800 rounded-lg shadow-sm p-6">
               <div className="mb-6">
                 <h3 className="text-xl font-medium mb-2">Frontend Developer Interview</h3>
                 <div className="flex items-center text-sm text-gray-500">
@@ -92,7 +92,7 @@ const Features = () => {
         {/* Step 2 - Invite Candidates & Schedule */}
         <div ref={step2Ref} className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 opacity-0 translate-y-10 transition-all duration-700 delay-75">
           <div className="order-2 md:order-1 bg-green-50 p-8 rounded-2xl border border-green-100 shadow-sm">
-            <div className="aspect-[4/3] bg-white rounded-lg shadow-sm p-6">
+            <div className="aspect-[4/3] bg-card dark:bg-gray-800 rounded-lg shadow-sm p-6">
               <div className="mb-6">
                 <h3 className="text-xl font-medium mb-2">Candidate Scheduling</h3>
                 <div className="flex items-center text-sm text-gray-500">
@@ -152,7 +152,7 @@ const Features = () => {
           </div>
           <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm">
             <div className="rounded-lg overflow-hidden">
-              <AspectRatio ratio={16 / 9} className="bg-white">
+              <AspectRatio ratio={16 / 9} className="bg-card dark:bg-gray-800">
                 <img src="/lovable-uploads/cb9cc1ae-4408-4cad-95c1-0b59eb6979cd.png" alt="Candidate Report Insights" className="w-full h-full object-contain" style={{
                 maxHeight: '400px'
               }} onError={e => {

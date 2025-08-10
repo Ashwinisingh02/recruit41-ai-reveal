@@ -4,12 +4,11 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { ThemeProvider } from '@/components/ThemeProvider';
+
 
 const Product = () => {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
         <NavBar />
         <main>
           {/* Product Hero */}
@@ -194,7 +193,7 @@ const Product = () => {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
+    
   );
 };
 

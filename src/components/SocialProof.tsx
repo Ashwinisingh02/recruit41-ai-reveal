@@ -85,12 +85,12 @@ const SocialProof = () => {
   }, []);
 
   return (
-    <section className="section-padding bg-white overflow-hidden py-24">
+    <section className="section-padding bg-background dark:bg-background overflow-hidden py-24">
       <div className="container max-w-7xl mx-auto px-4">
         {/* Hero Section with Heading and Tagline */}
         <div className="text-center mb-16 relative z-10">
-          <p className="text-gray-600 font-medium mb-2 animate-fade-in">With no limits,</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 animate-fade-in">
+          <p className="text-gray-600 dark:text-gray-300 font-medium mb-2 animate-fade-in">With no limits,</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 animate-fade-in">
             Find top 1%, with ease.
           </h2>
         </div>
@@ -113,7 +113,7 @@ const SocialProof = () => {
                 return (
                   <div
                     key={logo.id}
-                    className="floating-logo absolute w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
+                    className="floating-logo absolute w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
@@ -144,7 +144,7 @@ const SocialProof = () => {
               <CarouselContent>
                 {testimonials.map((testimonial) => (
                   <CarouselItem key={testimonial.id} className="md:basis-full">
-                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mx-auto">
+                    <div className="bg-card p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 mx-auto">
                       <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
                         "{testimonial.quote}"
                       </p>
@@ -172,7 +172,7 @@ const SocialProof = () => {
                     <button
                       key={index}
                       className={`w-2 h-2 rounded-full transition-all ${
-                        activeTestimonial === index ? 'bg-gray-800 w-4' : 'bg-gray-300'
+                        activeTestimonial === index ? 'bg-gray-800 w-4 dark:bg-white' : 'bg-gray-300 dark:bg-gray-600'
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />

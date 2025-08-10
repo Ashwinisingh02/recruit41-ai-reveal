@@ -10,7 +10,7 @@ import Founders from '@/components/Founders';
 import Security from '@/components/Security';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
-import { ThemeProvider } from '@/components/ThemeProvider';
+
 import Features from '@/components/Features';
 import PricingSection from '@/components/PricingSection';
 import FeatureCards from '@/components/FeatureCards';
@@ -19,8 +19,7 @@ import ProcessSection from '@/components/ProcessSection';
 
 const Index = () => {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
         <NavBar />
         <main>
           <Hero />
@@ -43,7 +42,7 @@ const Index = () => {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
+    
   );
 };
 
